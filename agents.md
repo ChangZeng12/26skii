@@ -400,7 +400,7 @@ python scripts/make-avatars.py   # 替换/新增头像后重新生成缩略图�
 1. 旧金山的头像 `src/icon/SF1.jpg` 是一张纯白图片，需要换成真正的头像，再运行 `python scripts/make-avatars.py`。
 2. 自驾可接受的单程上限是多少小时？是否接受转机？（影响 `DRIVE_MAX_MI` 与评分）
 3. 是否要把全价 Epic Pass / Ikon Pass 作为对照一起展示？（成人价 Epic $1,145 / Ikon $1,449；**25–30 岁的全价 pass 价格未核实**）
-4. 源码发布到 GitHub `ChangZeng12/26skii` 已确认；是否另行启用 GitHub Pages 或 Vercel 网站部署仍待确认（影响 Vite `base`；当前缩略图的公开授权见 §2）。
+4. ✅ 用户 2026-10-05 确认启用 GitHub Pages：`https://changzeng12.github.io/26skii/`。Vite `base` 为 `/26skii/`，`.github/workflows/pages.yml` 在 `main` 推送后先校验、再构建部署；当前缩略图的公开授权见 §2。
 5. 是否需要我继续核实 `nearestAirports` + 地面接驳时长？（72 场逐个查，工作量不小，但会显著提升飞行方案的评分可信度）
 
 ---

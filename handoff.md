@@ -16,6 +16,8 @@
 - Vite 8 + React 19 + TS 6.0 + MapLibre GL v6 + OpenFreeMap 底图，样式是原生 CSS + token（macOS 26 Liquid Glass）。
 - `typecheck` / `lint` / `test`（7 个文件 49 个用例）/ `validate:data` / `build` 全绿，`npm audit` 0 漏洞。
 - 已初始化 Git，默认分支为 `main`；用户指定源码发布到 `https://github.com/ChangZeng12/26skii`。原图 `src/icon/` 已加入 `.gitignore`，只提交获准公开的缩略图。
+- 用户已要求启用 GitHub Pages：`https://changzeng12.github.io/26skii/`。部署工作流为 `.github/workflows/pages.yml`，`main` 推送后通过检查再发布 `dist/`；Vite `base` 为 `/26skii/`。本地开发与预览也使用该子路径。
+- README 按用户要求只保留「到底去哪里滑雪？」一句，不再添加技术说明。
 
 已实现的功能（详见 agents.md §7 的勾选状态）：
 
@@ -95,7 +97,7 @@
 1. 换一张真的旧金山头像 `src/icon/SF1.jpg`，然后跑 `python scripts/make-avatars.py`。
 2. 自驾可接受的单程上限？是否接受转机？（决定评分里的 `DRIVE_MAX_MI`）
 3. 要不要把全价 Epic Pass / Ikon Pass 作为对照？（25–30 岁的全价 pass 价格还没核实）
-4. 源码已确定发布到 GitHub `ChangZeng12/26skii`；是否另行启用 GitHub Pages / Vercel 网站部署仍待确认。当前 8 张缩略图已获用户确认可公开，原图仅留本地。
+4. ✅ 用户已确认启用 GitHub Pages，并已提醒其重新考虑恢复底图署名；本次继续保留现有界面。当前 8 张缩略图已获用户确认可公开，原图仅留本地。
 5. 要不要逐个核实 72 个雪场的最近机场 + 接驳时长？
 
 **v1 里还没做的**（用户没要求之前别主动做）：出发地逐个开关、出行耗时与团队评分（agents.md §9）、雪场对比表、状态写进 URL、出发地到雪场的连线、雪场聚类与标签避让（盐湖城 / Summit County 一带在 zoom 8 时标签会互相压）。
