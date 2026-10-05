@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "season": "2026/27",
+    "scope": "仅美国（US）。加拿大 / 欧洲 / 日本 / 南半球雪场按项目范围排除。",
+    "verifiedOn": "2026-10-05",
+    "sources": {
+      "epic-local": "https://www.epicpass.com/passes/epic-local-pass.aspx",
+      "ikon-base-marketing": "https://www.ikonpass.com/en/shop-passes/ikon-base-pass",
+      "ikon-base-api": "https://www.ikonpass.com/static/json/access-details.json (product_code: ikonbase2627)"
+    },
+    "websiteSources": {
+      "note": "2026-10-05 采集并逐个访问核实（HTTP 200，页面标题与雪场一致）。跳转过的域名已换成跳转后的规范地址。",
+      "epic-local": "epicpass.com 页脚 Our Resorts 链接",
+      "ikon-base": "ikonpass.com 内容库 destination.website（bjsgnxuy.apicdn.sanity.io / ikon-prod）",
+      "shared": "Jack Frost 与 Big Boulder 共用 jfbb.com；Boston Mills 与 Brandywine 共用 bmbw.com；Snow Valley 共用 Big Bear 官网"
+    },
+    "mapsQuerySources": "2026-10-05 逐个打开 Google 地图链接核对：默认查询（雪场名 + ski resort + 州）有 62 个直接打开正确的地点卡片；mapsQuery 是为其余能修好的 7 个写的覆盖查询（含原本跳到 Pico 的 Killington）。另有 10 个打开的是已居中在雪场上的搜索页。",
+    "coordsSources": {
+      "wikipedia": "https://en.wikipedia.org/w/api.php (prop=coordinates)",
+      "osm": "https://nominatim.openstreetmap.org/ (© OpenStreetMap contributors, ODbL)"
+    },
+    "audience": {
+      "ageMin": 25,
+      "ageMax": 30,
+      "note": "用户于 2026-10-05 确认同行所有人都在 25–30 岁。passes.*.price 取覆盖这个年龄段的那一档官网价。"
+    },
+    "passes": {
+      "epic-local": {
+        "name": "Epic Local Pass",
+        "officialUrl": "https://www.epicpass.com/passes/epic-local-pass.aspx",
+        "price": {
+          "usd": 675,
+          "bracket": "青年价",
+          "ageMin": 18,
+          "ageMax": 30,
+          "standardAdultUsd": 849,
+          "capturedOn": "2026-10-05",
+          "notes": [
+            { "tone": "warning", "text": "官网标注 2026-10-07 涨价" },
+            { "tone": "info", "text": "青年价需第三方年龄验证（官网：Age will be verified），31 岁起为成人价 $849" }
+          ]
+        },
+        "excludes": "不含 Telluride 与 Resorts of the Canadian Rockies"
+      },
+      "ikon-base": {
+        "name": "Ikon Base Pass",
+        "officialUrl": "https://www.ikonpass.com/en/shop-passes/ikon-base-pass",
+        "price": {
+          "usd": 1019,
+          "bracket": "成人价",
+          "ageMin": 23,
+          "capturedOn": "2026-10-05",
+          "notes": [],
+          "deal": {
+            "label": "Squad Pack",
+            "usd": 800,
+            "ageMin": 23,
+            "ageMax": 28,
+            "condition": "一人一次为同组买满 5 张，少于或多于 5 张都不行",
+            "note": "营销页写的是「骑手 23–28 岁」，FAQ 写的是「购买人 23–28 岁」，以官网结算页为准"
+          }
+        },
+        "excludes": "不含 Deer Valley、Alta、Snowbasin、Jackson Hole、Sun Valley"
+      }
+    },
+    "referencePrices": {
+      "note": "全价 pass 的核实当日成人价（31+ / 23+），仅供 agents.md §14 的对照问题参考，不在 UI 中展示。25–30 岁的全价 pass 价格未核实。",
+      "epic-pass-adult-usd": 1145,
+      "ikon-pass-adult-usd": 1449,
+      "capturedOn": "2026-10-05"
+    },
+    "counts": { "epic-local-us": 36, "ikon-base-us": 36, "overlap": 0 },
+    "findings": [
+      "两张 pass 的美国雪场**完全不重叠**（交集为 0）。UI 中的「两者皆有」分类在美国范围内为空。",
+      "Ikon 官方 JSON 比营销页更精确：15 个 unlimited 雪场里，只有 June / Mammoth / Palisades / Stratton / Sugarbush 有封锁日，其余 8 个（A-Basin、Big Bear、Copper、Eldora、Snowshoe、Snow Valley、Solitude、Winter Park）无封锁日。营销页笼统写作「Blackout Dates Apply」。",
+      "Epic Local 的 Vail / Beaver Creek 是**合计 10 天**的共享天数池（含加拿大 Whistler Blackcomb，已排除），不是每场 10 天；Ikon Base 的 5 天是**每场各 5 天**。",
+      "Epic Local 不含 Telluride 与 Resorts of the Canadian Rockies。",
+      "Ikon Base 的官方 JSON（ikonbase2627）是全量清单，其中不含 Deer Valley、Alta、Snowbasin、Jackson Hole、Sun Valley（这几个名字来自 Ikon 站内 CMS 的 premium 分类命名）。"
+    ],
+    "caveats": [
+      "Ikon 营销页在 5 天组标注「Lift Reservations Required」，但官方 JSON 中仅 Loon Mountain 的 reservations_enabled 为 true。本数据按 JSON 逐场记录，使用前请以官网为准。",
+      "Aspen Snowmass 实为 4 座山（Aspen Mountain / Aspen Highlands / Buttermilk / Snowmass），坐标取 Snowmass Village。",
+      "Killington-Pico 在 Ikon 中作为一个条目，坐标取 Killington。",
+      "Heavenly 横跨 CA/NV，state 记为 CA。",
+      "Jack Frost 与 Big Boulder 在 Epic 列表中是两个条目，已分别取坐标。"
+    ],
+    "gaps": [
+      "nearestAirports / groundHours：机场接驳时长需要路径规划数据，暂缺；评分模型在补齐前使用默认接驳时长。",
+      "verticalFt / skiableAcres：未核实，暂缺。"
+    ],
+    "blackoutSets": {
+      "epic-local-2627": [
+        { "from": "2026-11-27", "to": "2026-11-28" },
+        { "from": "2026-12-26", "to": "2026-12-31" },
+        { "from": "2027-01-16", "to": "2027-01-16" },
+        { "from": "2027-02-13", "to": "2027-02-14" }
+      ],
+      "ikon-base-2627": [
+        { "from": "2026-12-26", "to": "2026-12-30" },
+        { "from": "2027-01-16", "to": "2027-01-17" },
+        { "from": "2027-02-13", "to": "2027-02-14" }
+      ]
+    }
+  },
+
+  "accessGroups": [
+    {
+      "id": "epic-local-10day-shared",
+      "pass": "epic-local",
+      "kind": "limited",
+      "days": 10,
+      "daysShared": true,
+      "sharedDayPool": "epic-local-10day",
+      "blackoutSet": "epic-local-2627",
+      "reservationRequired": false,
+      "note": "在 Vail、Beaver Creek、Whistler Blackcomb（加拿大，本项目已排除）合计滑 10 天，且封锁日不可用。封锁日可买 Advanced Lift Ticket 折扣票。",
+      "source": "https://www.epicpass.com/passes/epic-local-pass.aspx",
+      "verifiedOn": "2026-10-05",
+      "confidence": "verified"
+    },
+    {
+      "id": "epic-local-unlimited-restricted",
+      "pass": "epic-local",
+      "kind": "unlimited-restricted",
+      "blackoutSet": "epic-local-2627",
+      "reservationRequired": false,
+      "note": "全季不限天数，但封锁日不可用。封锁日可买半价 Pass Holder 票。",
+      "source": "https://www.epicpass.com/passes/epic-local-pass.aspx",
+      "verifiedOn": "2026-10-05",
+      "confidence": "verified"
+    },
+    {
+      "id": "epic-local-unlimited",
+      "pass": "epic-local",
+      "kind": "unlimited",
+      "blackoutSet": null,
+      "reservationRequired": false,
+      "note": "全季每天都可以滑，包括其他雪场的高峰封锁日（官网原文：Every day of the season, including peak dates）。",
+      "source": "https://www.epicpass.com/passes/epic-local-pass.aspx",
+      "verifiedOn": "2026-10-05",
+      "confidence": "verified"
+    },
+    {
+      "id": "ikon-base-unlimited-restricted",
+      "pass": "ikon-base",
+      "kind": "unlimited-restricted",
+      "blackoutSet": "ikon-base-2627",
+      "reservationRequired": false,
+      "note": "不限天数，但封锁日不可用。",
+      "sourceRef": "access id 1608",
+      "source": "https://www.ikonpass.com/static/json/access-details.json",
+      "verifiedOn": "2026-10-05",
+      "confidence": "verified"
+    },
+    {
+      "id": "ikon-base-unlimited",
+      "pass": "ikon-base",
+      "kind": "unlimited",
+      "blackoutSet": null,
+      "reservationRequired": false,
+      "note": "不限天数且无封锁日。Ikon 营销页笼统写着「有封锁日」，这里以官方 JSON 为准，购买前建议再确认一次。",
+      "sourceRef": "access id 1609",
+      "source": "https://www.ikonpass.com/static/json/access-details.json",
+      "verifiedOn": "2026-10-05",
+      "confidence": "verified"
+    },
+    {
+      "id": "ikon-base-5day",
+      "pass": "ikon-base",
+      "kind": "limited",
+      "days": 5,
+      "daysShared": false,
+      "blackoutSet": null,
+      "reservationRequired": false,
+      "note": "每场各 5 天，无封锁日。",
+      "sourceRef": "access id 1610",
+      "source": "https://www.ikonpass.com/static/json/access-details.json",
+      "verifiedOn": "2026-10-05",
+      "confidence": "verified"
+    },
+    {
+      "id": "ikon-base-5day-restricted",
+      "pass": "ikon-base",
+      "kind": "limited",
+      "days": 5,
+      "daysShared": false,
+      "blackoutSet": "ikon-base-2627",
+      "reservationRequired": false,
+      "note": "每场各 5 天，封锁日不可用。Ikon 营销页称这一组需要提前预约（lift reservation），但官方 JSON 只给 Loon Mountain 标了需预约。",
+      "sourceRef": "access id 1611",
+      "source": "https://www.ikonpass.com/static/json/access-details.json",
+      "verifiedOn": "2026-10-05",
+      "confidence": "verified"
+    }
+  ],
+
+  "resorts": [
+    { "id": "vail", "name": "Vail", "country": "US", "state": "CO", "region": "rockies", "coords": [-106.374, 39.639], "coordsSource": "wikipedia", "website": "https://www.vail.com/", "accessGroup": "epic-local-10day-shared" },
+    { "id": "beaver-creek", "name": "Beaver Creek", "country": "US", "state": "CO", "region": "rockies", "coords": [-106.52167, 39.63139], "coordsSource": "wikipedia", "website": "https://www.beavercreek.com/", "accessGroup": "epic-local-10day-shared" },
+
+    { "id": "park-city", "name": "Park City", "country": "US", "state": "UT", "region": "rockies", "coords": [-111.5075, 40.65083], "coordsSource": "wikipedia", "mapsQuery": "Park City Mountain, UT", "website": "https://www.parkcitymountain.com/", "accessGroup": "epic-local-unlimited-restricted" },
+    { "id": "heavenly", "name": "Heavenly", "country": "US", "state": "CA", "region": "west", "coords": [-119.94, 38.9353], "coordsSource": "wikipedia", "note": "横跨 CA/NV", "website": "https://www.skiheavenly.com/", "accessGroup": "epic-local-unlimited-restricted" },
+    { "id": "northstar", "name": "Northstar", "country": "US", "state": "CA", "region": "west", "coords": [-120.125, 39.264], "coordsSource": "wikipedia", "website": "https://www.northstarcalifornia.com/", "accessGroup": "epic-local-unlimited-restricted" },
+    { "id": "kirkwood", "name": "Kirkwood", "country": "US", "state": "CA", "region": "west", "coords": [-120.068, 38.684], "coordsSource": "wikipedia", "website": "https://www.kirkwood.com/", "accessGroup": "epic-local-unlimited-restricted" },
+    { "id": "stowe", "name": "Stowe", "country": "US", "state": "VT", "region": "northeast", "coords": [-72.7875, 44.53194], "coordsSource": "wikipedia", "website": "https://www.stowe.com/", "accessGroup": "epic-local-unlimited-restricted" },
+
+    { "id": "breckenridge", "name": "Breckenridge", "country": "US", "state": "CO", "region": "rockies", "coords": [-106.067, 39.48], "coordsSource": "wikipedia", "website": "https://www.breckenridge.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "keystone", "name": "Keystone", "country": "US", "state": "CO", "region": "rockies", "coords": [-105.95417, 39.605], "coordsSource": "wikipedia", "website": "https://www.keystoneresort.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "crested-butte", "name": "Crested Butte", "country": "US", "state": "CO", "region": "rockies", "coords": [-106.94468, 38.897], "coordsSource": "osm", "mapsQuery": "Crested Butte Mountain Resort, CO", "website": "https://www.skicb.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "stevens-pass", "name": "Stevens Pass", "country": "US", "state": "WA", "region": "pacific-northwest", "coords": [-121.09333, 47.745], "coordsSource": "wikipedia", "website": "https://www.stevenspass.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "mount-snow", "name": "Mount Snow", "country": "US", "state": "VT", "region": "northeast", "coords": [-72.922, 42.959], "coordsSource": "wikipedia", "website": "https://www.mountsnow.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "okemo", "name": "Okemo", "country": "US", "state": "VT", "region": "northeast", "coords": [-72.71667, 43.40139], "coordsSource": "wikipedia", "website": "https://www.okemo.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "mount-sunapee", "name": "Mount Sunapee", "country": "US", "state": "NH", "region": "northeast", "coords": [-72.08, 43.33056], "coordsSource": "wikipedia", "website": "https://www.mountsunapee.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "attitash", "name": "Attitash Mountain Resort", "country": "US", "state": "NH", "region": "northeast", "coords": [-71.22972, 44.08222], "coordsSource": "wikipedia", "website": "https://www.attitash.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "wildcat", "name": "Wildcat Mountain", "country": "US", "state": "NH", "region": "northeast", "coords": [-71.20139, 44.25889], "coordsSource": "wikipedia", "website": "https://www.skiwildcat.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "crotched", "name": "Crotched Mountain", "country": "US", "state": "NH", "region": "northeast", "coords": [-71.87371, 42.99829], "coordsSource": "wikipedia", "website": "https://www.crotchedmtn.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "hunter-mountain", "name": "Hunter Mountain", "country": "US", "state": "NY", "region": "northeast", "coords": [-74.23042, 42.17787], "coordsSource": "osm", "website": "https://www.huntermtn.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "liberty-mountain", "name": "Liberty Mountain Resort", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-77.36853, 39.76064], "coordsSource": "osm", "website": "https://www.libertymountainresort.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "roundtop", "name": "Roundtop Mountain Resort", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-76.926, 40.108], "coordsSource": "wikipedia", "website": "https://www.skiroundtop.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "whitetail", "name": "Whitetail Resort", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-77.93753, 39.74324], "coordsSource": "osm", "website": "https://www.skiwhitetail.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "jack-frost", "name": "Jack Frost", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-75.65192, 41.11036], "coordsSource": "osm", "website": "https://www.jfbb.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "big-boulder", "name": "Big Boulder", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-75.59976, 41.04665], "coordsSource": "osm", "website": "https://www.jfbb.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "seven-springs", "name": "Seven Springs", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-79.29278, 40.02306], "coordsSource": "wikipedia", "mapsQuery": "Seven Springs Mountain Resort, PA", "website": "https://www.7springs.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "laurel-mountain", "name": "Laurel Mountain", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-79.16852, 40.16676], "coordsSource": "osm", "website": "https://www.laurelmountainski.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "hidden-valley-pa", "name": "Hidden Valley", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-79.25828, 40.05804], "coordsSource": "wikipedia", "website": "https://www.hiddenvalleyresort.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "afton-alps", "name": "Afton Alps", "country": "US", "state": "MN", "region": "midwest", "coords": [-92.78917, 44.85556], "coordsSource": "wikipedia", "website": "https://www.aftonalps.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "mt-brighton", "name": "Mt Brighton", "country": "US", "state": "MI", "region": "midwest", "coords": [-83.80694, 42.53806], "coordsSource": "wikipedia", "website": "https://www.mtbrighton.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "wilmot", "name": "Wilmot", "country": "US", "state": "WI", "region": "midwest", "coords": [-88.18889, 42.5], "coordsSource": "wikipedia", "website": "https://www.wilmotmountain.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "alpine-valley-oh", "name": "Alpine Valley", "country": "US", "state": "OH", "region": "midwest", "coords": [-81.26145, 41.52839], "coordsSource": "osm", "website": "https://www.alpinevalleyohio.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "boston-mills", "name": "Boston Mills", "country": "US", "state": "OH", "region": "midwest", "coords": [-81.56391, 41.26411], "coordsSource": "osm", "website": "https://www.bmbw.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "brandywine", "name": "Brandywine", "country": "US", "state": "OH", "region": "midwest", "coords": [-81.55532, 41.28468], "coordsSource": "osm", "website": "https://www.bmbw.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "mad-river-mountain", "name": "Mad River Mountain", "country": "US", "state": "OH", "region": "midwest", "coords": [-83.67526, 40.31724], "coordsSource": "osm", "website": "https://www.skimadriver.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "hidden-valley-mo", "name": "Hidden Valley", "country": "US", "state": "MO", "region": "midwest", "coords": [-90.65287, 38.53558], "coordsSource": "wikipedia", "website": "https://www.hiddenvalleyski.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "snow-creek", "name": "Snow Creek", "country": "US", "state": "MO", "region": "midwest", "coords": [-94.97196, 39.46865], "coordsSource": "wikipedia", "website": "https://www.skisnowcreek.com/", "accessGroup": "epic-local-unlimited" },
+    { "id": "paoli-peaks", "name": "Paoli Peaks", "country": "US", "state": "IN", "region": "midwest", "coords": [-86.51028, 38.55778], "coordsSource": "wikipedia", "website": "https://www.paolipeaks.com/", "accessGroup": "epic-local-unlimited" },
+
+    { "id": "june-mountain", "name": "June Mountain", "country": "US", "state": "CA", "region": "west", "coords": [-119.0906, 37.7683], "coordsSource": "wikipedia", "website": "https://www.junemountain.com/", "accessGroup": "ikon-base-unlimited-restricted" },
+    { "id": "mammoth", "name": "Mammoth Mountain", "country": "US", "state": "CA", "region": "west", "coords": [-119.0325, 37.63056], "coordsSource": "wikipedia", "website": "https://www.mammothmountain.com/", "accessGroup": "ikon-base-unlimited-restricted" },
+    { "id": "palisades-tahoe", "name": "Palisades Tahoe", "country": "US", "state": "CA", "region": "west", "coords": [-120.235, 39.196], "coordsSource": "wikipedia", "mapsQuery": "Palisades Tahoe, Olympic Valley, CA", "website": "https://www.palisadestahoe.com/", "accessGroup": "ikon-base-unlimited-restricted" },
+    { "id": "stratton", "name": "Stratton", "country": "US", "state": "VT", "region": "northeast", "coords": [-72.90667, 43.11417], "coordsSource": "wikipedia", "website": "https://www.stratton.com/", "accessGroup": "ikon-base-unlimited-restricted" },
+    { "id": "sugarbush", "name": "Sugarbush Resort", "country": "US", "state": "VT", "region": "northeast", "coords": [-72.90667, 44.13722], "coordsSource": "wikipedia", "website": "https://www.sugarbush.com/", "accessGroup": "ikon-base-unlimited-restricted" },
+
+    { "id": "arapahoe-basin", "name": "Arapahoe Basin", "country": "US", "state": "CO", "region": "rockies", "coords": [-105.87167, 39.64167], "coordsSource": "wikipedia", "website": "https://www.arapahoebasin.com/", "accessGroup": "ikon-base-unlimited" },
+    { "id": "big-bear", "name": "Big Bear Mountain Resort", "country": "US", "state": "CA", "region": "west", "coords": [-116.86006, 34.21983], "coordsSource": "osm", "website": "https://www.bigbearmountainresort.com/", "accessGroup": "ikon-base-unlimited" },
+    { "id": "copper-mountain", "name": "Copper Mountain", "country": "US", "state": "CO", "region": "rockies", "coords": [-106.15633, 39.49942], "coordsSource": "osm", "website": "https://www.coppercolorado.com/", "accessGroup": "ikon-base-unlimited" },
+    { "id": "eldora", "name": "Eldora Mountain Resort", "country": "US", "state": "CO", "region": "rockies", "coords": [-105.58397, 39.93725], "coordsSource": "osm", "website": "https://www.eldora.com/", "accessGroup": "ikon-base-unlimited" },
+    { "id": "snowshoe", "name": "Snowshoe", "country": "US", "state": "WV", "region": "mid-atlantic", "coords": [-79.99472, 38.40889], "coordsSource": "wikipedia", "mapsQuery": "Snowshoe Mountain Resort, WV", "website": "https://www.snowshoemtn.com/", "accessGroup": "ikon-base-unlimited" },
+    { "id": "snow-valley", "name": "Snow Valley", "country": "US", "state": "CA", "region": "west", "coords": [-117.03742, 34.22337], "coordsSource": "wikipedia", "note": "与 Big Bear Mountain Resort 同属一家公司，官网共用（Ikon 官方数据给的就是这个地址）", "website": "https://www.bigbearmountainresort.com/", "accessGroup": "ikon-base-unlimited" },
+    { "id": "solitude", "name": "Solitude Mountain Resort", "country": "US", "state": "UT", "region": "rockies", "coords": [-111.58892, 40.61514], "coordsSource": "wikipedia", "website": "https://www.solitudemountain.com/", "accessGroup": "ikon-base-unlimited" },
+    { "id": "winter-park", "name": "Winter Park Resort", "country": "US", "state": "CO", "region": "rockies", "coords": [-105.7625, 39.88694], "coordsSource": "wikipedia", "website": "https://www.winterparkresort.com/", "accessGroup": "ikon-base-unlimited" },
+
+    { "id": "alyeska", "name": "Alyeska Resort", "country": "US", "state": "AK", "region": "alaska", "coords": [-149.0982, 60.9705], "coordsSource": "wikipedia", "website": "https://www.alyeskaresort.com/", "accessGroup": "ikon-base-5day" },
+
+    { "id": "aspen-snowmass", "name": "Aspen Snowmass", "country": "US", "state": "CO", "region": "rockies", "coords": [-106.93782, 39.21304], "coordsSource": "osm", "note": "含 Aspen Mountain / Aspen Highlands / Buttermilk / Snowmass 四山，坐标取 Snowmass Village", "website": "https://www.aspensnowmass.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "big-sky", "name": "Big Sky Resort", "country": "US", "state": "MT", "region": "rockies", "coords": [-111.4319, 45.275], "coordsSource": "wikipedia", "website": "https://www.bigskyresort.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "blue-mountain-pa", "name": "Blue Mountain Resort", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-77.66639, 40.12444], "coordsSource": "wikipedia", "website": "https://www.skibluemt.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "boyne-mountain", "name": "Boyne Mountain", "country": "US", "state": "MI", "region": "midwest", "coords": [-84.93278, 45.16389], "coordsSource": "wikipedia", "website": "https://www.boynemountain.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "brighton", "name": "Brighton", "country": "US", "state": "UT", "region": "rockies", "coords": [-111.58333, 40.6], "coordsSource": "wikipedia", "website": "https://www.brightonresort.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "camelback", "name": "Camelback Resort", "country": "US", "state": "PA", "region": "mid-atlantic", "coords": [-75.3458, 41.0419], "coordsSource": "wikipedia", "mapsQuery": "Camelback Mountain Resort, Tannersville, PA", "website": "https://www.camelbackresort.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "crystal-mountain-wa", "name": "Crystal Mountain", "country": "US", "state": "WA", "region": "pacific-northwest", "coords": [-121.48, 46.93], "coordsSource": "wikipedia", "website": "https://www.crystalmountainresort.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "granite-peak", "name": "Granite Peak", "country": "US", "state": "WI", "region": "midwest", "coords": [-89.68565, 44.9258], "coordsSource": "osm", "website": "https://www.skigranitepeak.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "killington-pico", "name": "Killington-Pico", "country": "US", "state": "VT", "region": "northeast", "coords": [-72.798, 43.626], "coordsSource": "wikipedia", "note": "Ikon 作单一条目；坐标取 Killington，Pico 在 [-72.8425, 43.66167]", "mapsQuery": "Killington Resort, VT", "website": "https://killington.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "loon-mountain", "name": "Loon Mountain", "country": "US", "state": "NH", "region": "northeast", "coords": [-71.62144, 44.03597], "coordsSource": "wikipedia", "reservationRequired": true, "website": "https://www.loonmtn.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "lutsen", "name": "Lutsen Mountains", "country": "US", "state": "MN", "region": "midwest", "coords": [-90.714, 47.664], "coordsSource": "wikipedia", "website": "https://www.lutsen.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "mt-bachelor", "name": "Mt. Bachelor", "country": "US", "state": "OR", "region": "pacific-northwest", "coords": [-121.677, 44.003], "coordsSource": "wikipedia", "website": "https://www.mtbachelor.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "schweitzer", "name": "Schweitzer", "country": "US", "state": "ID", "region": "pacific-northwest", "coords": [-116.623, 48.367], "coordsSource": "wikipedia", "website": "https://www.schweitzer.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "sierra-at-tahoe", "name": "Sierra-at-Tahoe", "country": "US", "state": "CA", "region": "west", "coords": [-120.0806, 38.8002], "coordsSource": "wikipedia", "website": "https://sierraattahoe.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "snowbird", "name": "Snowbird", "country": "US", "state": "UT", "region": "rockies", "coords": [-111.65639, 40.58111], "coordsSource": "wikipedia", "website": "https://www.snowbird.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "snowriver", "name": "Snowriver Mountain Resort", "country": "US", "state": "MI", "region": "midwest", "coords": [-89.97083, 46.5], "coordsSource": "wikipedia", "website": "https://www.snowriver.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "steamboat", "name": "Steamboat", "country": "US", "state": "CO", "region": "rockies", "coords": [-106.803, 40.459], "coordsSource": "wikipedia", "website": "https://www.steamboat.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "sugarloaf", "name": "Sugarloaf", "country": "US", "state": "ME", "region": "northeast", "coords": [-70.31333, 45.03168], "coordsSource": "wikipedia", "website": "https://www.sugarloaf.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "sunday-river", "name": "Sunday River", "country": "US", "state": "ME", "region": "northeast", "coords": [-70.8569, 44.4734], "coordsSource": "wikipedia", "website": "https://www.sundayriver.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "taos", "name": "Taos Ski Valley", "country": "US", "state": "NM", "region": "rockies", "coords": [-105.43694, 36.59], "coordsSource": "wikipedia", "website": "https://www.skitaos.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "the-highlands", "name": "The Highlands", "country": "US", "state": "MI", "region": "midwest", "coords": [-84.93472, 45.47083], "coordsSource": "wikipedia", "website": "https://www.highlandsharborsprings.com/", "accessGroup": "ikon-base-5day-restricted" },
+    { "id": "summit-at-snoqualmie", "name": "The Summit at Snoqualmie", "country": "US", "state": "WA", "region": "pacific-northwest", "coords": [-121.416, 47.424], "coordsSource": "wikipedia", "website": "https://www.summitatsnoqualmie.com/", "accessGroup": "ikon-base-5day-restricted" }
+  ]
+}

@@ -1,0 +1,410 @@
+.map {
+  position: absolute;
+  inset: 0;
+  /* 自成层叠上下文：标记的 z-index 只在地图内部比较，不会盖过浮层面板 */
+  z-index: var(--z-map);
+  isolation: isolate;
+}
+
+/* ── 标记叠放：灰点 < 雪场 < 出发地 < 选中雪场 < 悬停 ── */
+.maplibregl-marker[data-layer="resort"] { z-index: 1; }
+.maplibregl-marker[data-layer="resort"]:has(.pin[data-dimmed="true"]) { z-index: 0; }
+.maplibregl-marker[data-layer="origin"] { z-index: 2; }
+.maplibregl-marker[data-layer="resort"]:has(.pin[data-selected="true"]) { z-index: 3; }
+.maplibregl-marker[data-layer]:hover { z-index: 4; }
+
+/*
+ * ── 雪场标记（design.md §2.3 / §2.3b） ──
+ * 结构：外环（pass 主题色；实线 = 不限天数，虚线 = 限定天数）→ 隔离圈（--pin-halo）→ 品牌圆点（PassDot）
+ *      → 右下角天数角标（仅限定天数）→ 右上角红点（有封锁日）。
+ * 品牌圆点是用户提供的完整图形（主题色底 + 白色 logo），只在近景（标记足够大）时显示；
+ * 远景和中景用同色实心点代替（--_dot: none，露出 --_fill 主题色）。
+ * 尺寸随缩放档位变化，全部通过自定义属性层叠，.pin-glyph 是面板里用的静态缩样。
+ */
+.pin,
+.pin-glyph {
+  --_c: var(--pass-epic);
+  --_radius: 50%;
+  --_size: var(--pin-size);
+  --_ring: var(--pin-ring);
+  --_gap: var(--pin-gap);
+  --_notch: var(--pin-notch);
+  /* 品牌圆点加载前 / 被淡化时的底色 */
+  --_fill: var(--_c);
+  --_dot: block;
+  --_badge: grid;
+  position: relative;
+  display: block;
+  flex: none;
+  width: var(--_size);
+  height: var(--_size);
+}
+
+.pin[data-pass="ikon-base"],
+.pin-glyph[data-pass="ikon-base"] {
+  --_c: var(--pass-ikon);
+  --_radius: var(--r-squircle);
+}
+
+.pin-glyph[data-pass="neutral"] {
+  --_c: var(--text-secondary);
+}
+
+.pin {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    width var(--motion-fast) var(--ease-out),
+    height var(--motion-fast) var(--ease-out),
+    transform var(--motion-instant) var(--ease-out),
+    opacity var(--motion-fast) var(--ease-out);
+}
+
+.pin:hover { transform: scale(1.12); }
+.pin:active { transform: scale(0.96); }
+
+.pin__ring {
+  position: absolute;
+  inset: 0;
+  border: var(--_ring) solid var(--_c);
+  border-radius: var(--_radius);
+  background: var(--pin-halo);
+  box-shadow: var(--shadow-2);
+}
+
+[data-kind="limited"] > .pin__ring {
+  border-style: dashed;
+}
+
+.pin__body {
+  position: absolute;
+  inset: calc(var(--_ring) + var(--_gap));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--_radius);
+  background: var(--_fill);
+}
+
+.pin__body .pass-dot {
+  display: var(--_dot);
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* 限定天数角标：深色胶囊 + 浅色数字，与橙/蓝/黄三种品牌色都不撞色 */
+.pin__days {
+  --_badge-h: var(--pin-badge-height);
+  position: absolute;
+  right: calc(var(--_badge-h) * -0.35);
+  bottom: calc(var(--_badge-h) * -0.35);
+  display: var(--_badge);
+  place-items: center;
+  min-width: var(--_badge-h);
+  height: var(--_badge-h);
+  padding: 0 var(--s-1);
+  border-radius: var(--r-pill);
+  background: var(--text-primary);
+  box-shadow: 0 0 0 var(--pin-gap) var(--pin-halo);
+  color: var(--surface-solid);
+  font-family: var(--font-display);
+  font-size: var(--fs-footnote);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* 封锁日红点：design.md §2.5 的 --state-danger；黄色会和 Ikon 的黄色 logo 混淆 */
+.pin__notch {
+  position: absolute;
+  top: calc(var(--_notch) * -0.2);
+  right: calc(var(--_notch) * -0.2);
+  width: var(--_notch);
+  height: var(--_notch);
+  border-radius: 50%;
+  background: var(--state-danger);
+  box-shadow: 0 0 0 var(--_ring) var(--pin-halo);
+}
+
+.pin__label {
+  position: absolute;
+  top: calc(100% + var(--s-2));
+  left: 50%;
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--glass-base) 90%, transparent);
+  box-shadow: 0 0 0 1px var(--hairline), var(--shadow-1);
+  color: var(--text-primary);
+  font-size: var(--fs-footnote);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-footnote);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, calc(var(--s-1) * -1));
+  transition:
+    opacity var(--motion-fast) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+/* 有天数角标时，名称标签往下让一点，避免压住角标 */
+.pin[data-kind="limited"] .pin__label {
+  top: calc(100% + var(--pin-badge-height) * 0.65 + var(--s-1));
+}
+
+/*
+ * 缩放档位（用户要求：拉远时是实心小点，拉近、标记变得足够大之后才显示 logo）：
+ * far  — 小号实心点：外环与填色同色、没有白色隔离圈，只传达 pass 的颜色和形状；
+ * mid  — 稍大的实心点（仍明显小于 near），仍不显示 logo；右上角出现封锁日红点；
+ * near — 标记足够大：显示品牌 logo、虚线环 + 天数角标（限定天数）和雪场名。
+ */
+.map[data-zoom-tier="far"] .pin,
+.map[data-zoom-tier="mid"] .pin {
+  --_gap: 0px;
+  --_dot: none;
+  --_badge: none;
+}
+
+.map[data-zoom-tier="mid"] .pin {
+  --_size: var(--pin-size-mid);
+  --_ring: var(--pin-ring-far);
+  --_notch: var(--pin-notch-mid);
+}
+
+.map[data-zoom-tier="far"] .pin {
+  --_size: var(--pin-size-far);
+  --_ring: var(--pin-ring-far);
+  --_notch: var(--pin-notch-far);
+}
+
+/* 实心点上的虚线会变成锯齿：远景、中景一律实线，并加一圈细白边和底图分开 */
+.map[data-zoom-tier="far"] .pin:not([data-selected="true"]) .pin__ring,
+.map[data-zoom-tier="mid"] .pin:not([data-selected="true"]) .pin__ring {
+  border-style: solid;
+  box-shadow: 0 0 0 1px var(--pin-halo), var(--shadow-1);
+}
+
+/* 远景只传达 pass（颜色 + 形状）；封锁日红点在全美视野下几十个同时出现会变成噪声 */
+.map[data-zoom-tier="far"] .pin:not([data-selected="true"]) .pin__notch {
+  display: none;
+}
+
+.map[data-zoom-tier="near"] .pin__label,
+.pin:hover .pin__label,
+.pin[data-selected="true"] .pin__label {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* 选中：任何档位都放大到完整尺寸，并加一圈 accent 光晕（与上面档位规则同优先级，靠顺序覆盖） */
+.map .pin[data-selected="true"] {
+  --_size: var(--pin-size-selected);
+  --_ring: var(--pin-ring);
+  --_gap: var(--pin-gap);
+  --_notch: var(--pin-notch);
+  --_dot: block;
+  --_badge: grid;
+}
+
+.pin[data-selected="true"] .pin__ring {
+  box-shadow: 0 0 0 var(--s-2) var(--focus-halo), var(--shadow-2);
+}
+
+/* 不在当前筛选内：缩成灰点，保留地理参照 */
+.map .pin[data-dimmed="true"] {
+  --_c: var(--pass-none);
+  --_size: var(--pin-size-dimmed);
+  --_ring: 0px;
+  --_gap: 0px;
+  --_dot: none;
+  --_badge: none;
+  opacity: 0.6;
+}
+
+.pin[data-dimmed="true"] .pin__notch,
+.pin[data-dimmed="true"] .pin__ring {
+  display: none;
+}
+
+.pin[data-dimmed="true"]:not(:hover) .pin__label {
+  opacity: 0;
+}
+
+/* 面板里的静态缩样 */
+.pin-glyph {
+  --_size: var(--pin-size-glyph);
+  --_ring: var(--pin-ring-far);
+  --_gap: var(--pin-gap-far);
+  --_notch: var(--pin-notch-far);
+}
+
+.pin-glyph .pin__ring {
+  box-shadow: none;
+}
+
+/* 面板列表行里的小缩样：角标缩小一号，避免压到相邻行 */
+.pin-glyph:not([data-size="lg"]) .pin__days {
+  --_badge-h: calc(var(--pin-badge-height) * 0.8);
+  font-size: var(--fs-caption);
+}
+
+.pin-glyph[data-size="lg"] {
+  --_size: var(--pin-size-selected);
+  --_ring: var(--pin-ring);
+  --_gap: var(--pin-gap);
+  --_notch: var(--pin-notch);
+}
+
+/* ── 出发地（design.md §2.4 / §8）：圆形头像 + 城市名标签 ── */
+.origin {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-on-accent);
+}
+
+button.origin {
+  cursor: pointer;
+}
+
+/*
+ * 头像横向半堆叠：后一个向左压住前一个的一半（--_overlap = -50% 头像宽），最左边的在最上层
+ * （层级由 AvatarStack 的内联 z-index 决定）。一处多人、或缩放后多地合并，都用同一种堆叠。
+ */
+.avatar-stack {
+  --_size: var(--origin-pin-size);
+  --_overlap: calc(var(--_size) * -0.5);
+  display: flex;
+  flex: none;
+}
+
+.avatar-stack[data-size="sm"] {
+  --_size: var(--origin-pin-size-sm);
+}
+
+.avatar {
+  --icon-size: calc(var(--_size) * 0.58);
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--_size);
+  height: var(--_size);
+  overflow: hidden;
+  border-radius: 50%;
+  /* 没有头像时的底色：石墨玻璃，承载白色首字 */
+  background: var(--origin-glass);
+  /* 玻璃隔离圈把相邻头像分开，叠在任何底图上都清楚 */
+  box-shadow: 0 0 0 var(--avatar-ring) var(--pin-halo), var(--shadow-2);
+  color: var(--text-on-accent);
+  font-family: var(--font-display);
+  font-size: var(--fs-headline);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  transition: margin var(--motion-base) var(--ease-glass);
+}
+
+.avatar-stack[data-size="sm"] .avatar {
+  box-shadow: 0 0 0 var(--avatar-ring) var(--pin-halo), var(--shadow-1);
+  font-size: var(--fs-footnote);
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 盖在照片上的内描边：浅色/白底头像在浅色底图和白色隔离圈之间也有清晰轮廓 */
+.avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  pointer-events: none;
+}
+
+.avatar[data-more="true"] {
+  font-size: var(--fs-footnote);
+  font-variant-numeric: tabular-nums;
+}
+
+.avatar + .avatar {
+  margin-left: var(--_overlap);
+}
+
+/* 悬停/聚焦时稍微展开，让被压住的那一半露出来（macOS 叠放头像的手感） */
+.origin:hover .avatar + .avatar,
+.origin:focus-visible .avatar + .avatar {
+  margin-left: calc(var(--_size) * -0.18);
+}
+
+.origin__label {
+  position: absolute;
+  top: calc(100% + var(--s-2));
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--s-1) var(--s-4);
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--glass-base) 90%, transparent);
+  box-shadow: 0 0 0 1px var(--hairline), var(--shadow-1);
+  color: var(--text-primary);
+  font-size: var(--fs-footnote);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-footnote);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── 右上角控件列：视野控件 + 设置按钮 ── */
+.corner-controls {
+  position: fixed;
+  z-index: var(--z-controls);
+  top: var(--edge);
+  right: var(--edge);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+/* ── 缩放控件：竖排玻璃胶囊（macOS 26 地图的样式） ── */
+.map-controls {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+  width: var(--toolbar-height);
+  padding: var(--s-2);
+  border-radius: var(--r-pill);
+}
+
+.map-controls__button {
+  --icon-size: var(--icon-md);
+  display: grid;
+  place-items: center;
+  width: calc(var(--toolbar-height) - 2 * var(--s-2));
+  height: calc(var(--toolbar-height) - 2 * var(--s-2));
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background var(--motion-instant) var(--ease-out), transform var(--motion-instant) var(--ease-out);
+}
+
+.map-controls__button:hover { background: var(--fill-hover); }
+.map-controls__button:active { background: var(--fill-active); transform: scale(0.94); }

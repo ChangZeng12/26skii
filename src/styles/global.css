@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  /* 显式背景：深色模式下地图瓦片到达之前不闪白 */
+  background: var(--map-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  position: fixed;
+  inset: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* design.md §12.4：焦点环永远可见，不允许 outline: none */
+:where(button, a, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 var(--s-2) var(--focus-halo);
+}
+
+.icon {
+  flex: none;
+  width: var(--icon-size, var(--icon-md));
+  height: var(--icon-size, var(--icon-md));
+  stroke-width: 2;
+}
+
+/* pass 品牌圆点：ikondot.svg 原图是正方形，按 Ikon 的 squircle 形状裁切，和地图标记外环一致 */
+.pass-dot {
+  display: block;
+  flex: none;
+  object-fit: cover;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pass-dot[data-pass="ikon-base"] {
+  border-radius: var(--r-squircle);
+}
+
+.link {
+  --icon-size: var(--icon-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  color: var(--accent);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* macOS 风格的细滚动条：只在滚动区域内显现，不抢视觉 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-tertiary) transparent;
+}

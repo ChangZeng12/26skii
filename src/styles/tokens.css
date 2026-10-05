@@ -1,0 +1,246 @@
+/*
+ * design.md 的唯一实现。组件样式只引用这里的变量，不写字面量颜色/字号/圆角/间距/时长。
+ *
+ * 明暗主题用 light-dark()：每个 token 的浅/深两值写在同一行，和 design.md 的表格一一对应。
+ * 跟随系统靠 color-scheme: light dark；手动覆盖用 :root[data-theme]。
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* ── §6 字体 ─────────────────────────────────────────────── */
+  --font-sans: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /* macOS 原生 13px 正文在 Web 非 Retina 屏偏小，统一放大 8%（design.md §6） */
+  --font-scale: 1.08;
+  --fs-large-title: calc(1.75rem * var(--font-scale));
+  --lh-large-title: calc(2.125rem * var(--font-scale));
+  --fs-title-1: calc(1.375rem * var(--font-scale));
+  --lh-title-1: calc(1.75rem * var(--font-scale));
+  --fs-title-2: calc(1.0625rem * var(--font-scale));
+  --lh-title-2: calc(1.375rem * var(--font-scale));
+  --fs-title-3: calc(0.9375rem * var(--font-scale));
+  --lh-title-3: calc(1.25rem * var(--font-scale));
+  --fs-headline: calc(0.8125rem * var(--font-scale));
+  --lh-headline: calc(1.125rem * var(--font-scale));
+  --fs-body: calc(0.8125rem * var(--font-scale));
+  --lh-body: calc(1.1875rem * var(--font-scale));
+  --fs-callout: calc(0.75rem * var(--font-scale));
+  --lh-callout: calc(1rem * var(--font-scale));
+  --fs-subheadline: calc(0.6875rem * var(--font-scale));
+  --lh-subheadline: calc(0.9375rem * var(--font-scale));
+  --fs-footnote: calc(0.625rem * var(--font-scale));
+  --lh-footnote: calc(0.875rem * var(--font-scale));
+  --fs-caption: calc(0.625rem * var(--font-scale));
+  --lh-caption: calc(0.8125rem * var(--font-scale));
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-large-title: -0.02em;
+  --tracking-title-1: -0.015em;
+  --tracking-title-2: -0.01em;
+  --tracking-footnote: 0.005em;
+  --tracking-caption: 0.05em;
+
+  /* ── §2.2 系统色板 ───────────────────────────────────────── */
+  --sys-blue: light-dark(#007AFF, #0A84FF);
+  --sys-green: light-dark(#28CD41, #30D158);
+  --sys-indigo: light-dark(#5856D6, #5E5CE6);
+  --sys-orange: light-dark(#FF9500, #FF9F0A);
+  --sys-pink: light-dark(#FF2D55, #FF375F);
+  --sys-purple: light-dark(#AF52DE, #BF5AF2);
+  --sys-red: light-dark(#FF3B30, #FF453A);
+  --sys-teal: light-dark(#30B0C7, #40C8E0);
+  --sys-yellow: light-dark(#FFCC00, #FFD60A);
+  --sys-brown: light-dark(#A2845E, #AC8E68);
+  --sys-graphite: light-dark(#8E8E93, #98989D);
+
+  /* ── §2.1 文字与分隔 ─────────────────────────────────────── */
+  --text-primary: light-dark(rgba(0, 0, 0, 0.85), rgba(255, 255, 255, 0.92));
+  --text-secondary: light-dark(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.56));
+  --text-tertiary: light-dark(rgba(0, 0, 0, 0.28), rgba(255, 255, 255, 0.3));
+  --text-on-accent: #FFFFFF;
+  --separator: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.12));
+  --hairline: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.14));
+  --fill-hover: light-dark(rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.07));
+  --fill-active: light-dark(rgba(0, 0, 0, 0.09), rgba(255, 255, 255, 0.12));
+  --accent: var(--sys-blue);
+  --focus-halo: color-mix(in srgb, var(--accent) 25%, transparent);
+
+  /* ── §2.3 Pass 语义色 ────────────────────────────────────── */
+  /* 用户指定的品牌主题色（2026-10-05）：Epic 橙、Ikon 蓝，明暗模式同值 */
+  --pass-epic: #FE8B00;
+  --pass-ikon: #4697CE;
+  --pass-none: var(--sys-graphite);
+  --pass-epic-soft: color-mix(in srgb, var(--pass-epic) 14%, transparent);
+  --pass-ikon-soft: color-mix(in srgb, var(--pass-ikon) 14%, transparent);
+  /* 做文字用的版本：主题色本身在浅色背景上对比不足 4.5:1（橙约 2.4:1、蓝约 3.2:1），浅色模式向黑色加深 */
+  --pass-epic-text: light-dark(color-mix(in srgb, var(--pass-epic) 58%, black), var(--pass-epic));
+  --pass-ikon-text: light-dark(color-mix(in srgb, var(--pass-ikon) 66%, black), var(--pass-ikon));
+
+  /* ── §2.4 出发地 ─────────────────────────────────────────── */
+  --origin-sf: var(--sys-teal);
+  --origin-arlington-va: var(--sys-purple);
+  --origin-baltimore: var(--sys-pink);
+  --origin-madison: var(--sys-green);
+  --origin-nyc: var(--sys-indigo);
+  --origin-boston: var(--sys-brown);
+  /* 石墨玻璃：由 graphite 加深得到，承载白色首字母 */
+  --origin-glass: light-dark(
+    color-mix(in srgb, color-mix(in srgb, var(--sys-graphite) 45%, black) 88%, transparent),
+    color-mix(in srgb, color-mix(in srgb, var(--sys-graphite) 72%, black) 88%, transparent)
+  );
+
+  /* ── §2.5 状态色 ─────────────────────────────────────────── */
+  --state-warning: var(--sys-yellow);
+  --state-danger: var(--sys-red);
+  --state-ok: var(--sys-green);
+  /* 浅色模式下黄/绿做文字太淡，向黑色加深；深色模式直接用原色 */
+  --state-warning-strong: light-dark(color-mix(in srgb, var(--sys-yellow) 50%, black), var(--sys-yellow));
+  --state-ok-strong: light-dark(color-mix(in srgb, var(--sys-green) 62%, black), var(--sys-green));
+  --state-warning-soft: color-mix(in srgb, var(--sys-yellow) 22%, transparent);
+  --state-ok-soft: color-mix(in srgb, var(--sys-green) 16%, transparent);
+
+  /* ── §3 Liquid Glass 材质 ────────────────────────────────── */
+  --glass-base: light-dark(rgb(246 246 248), rgb(28 28 30));
+  --glass-opacity: 0.74;
+  --glass-blur-chrome: 40px;
+  --glass-blur-float: 30px;
+  --glass-blur-overlay: 56px;
+  --glass-saturate-chrome: 180%;
+  --glass-saturate-float: 170%;
+  --glass-saturate-overlay: 200%;
+  --glass-specular: light-dark(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.1));
+  --glass-scrim: light-dark(rgba(255, 255, 255, 0.22), rgba(0, 0, 0, 0.26));
+  /* 顶部的液态反光：玻璃上缘更亮，向下渐隐 */
+  --glass-sheen: light-dark(rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.06));
+  /* 边缘高光：左上与右下最亮，模拟光线在玻璃边缘的折射 */
+  --glass-rim-strong: light-dark(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.32));
+  --glass-rim-weak: light-dark(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.06));
+  --surface-solid: light-dark(#F6F6F8, #1C1C1E);
+  /* 玻璃面板内的分组卡片、分段控件的选中「镜片」 */
+  --card-bg: light-dark(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.05));
+  --lens-bg: light-dark(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.2));
+  /* 雪场标记的表面（承载品牌 logo）与各种隔离圈：浅色近白、深色近黑，两种品牌色在上面都清楚 */
+  --pin-halo: color-mix(in srgb, var(--glass-base) 95%, transparent);
+  /* 底图加载前的占位色，取自 positron / dark 的背景，避免深色模式闪白 */
+  --map-canvas: light-dark(#F2F3F0, #161618);
+
+  /* ── §4 圆角 ─────────────────────────────────────────────── */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-pill: 999px;
+  /* Ikon 标记的 squircle：用百分比，随标记尺寸等比缩放 */
+  --r-squircle: 30%;
+
+  /* ── §5 阴影（深色模式 alpha 加倍） ─────────────────────── */
+  --shadow-1: 0 1px 2px light-dark(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1)),
+    0 1px 1px light-dark(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.08));
+  --shadow-2: 0 2px 6px light-dark(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.12)),
+    0 8px 20px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  --shadow-3: 0 4px 12px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.16)),
+    0 20px 48px light-dark(rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.28));
+
+  /* ── §7 间距（4pt 栅格） ─────────────────────────────────── */
+  --s-0: 0;
+  --s-1: 2px;
+  --s-2: 4px;
+  --s-3: 6px;
+  --s-4: 8px;
+  --s-5: 12px;
+  --s-6: 16px;
+  --s-7: 20px;
+  --s-8: 24px;
+  --s-9: 32px;
+  --s-10: 40px;
+  --edge: var(--s-6);
+
+  /* ── §11 动效 ────────────────────────────────────────────── */
+  --motion-instant: 120ms;
+  --motion-fast: 180ms;
+  --motion-base: 240ms;
+  --motion-slow: 360ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-glass: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* ── §8 组件尺寸 ─────────────────────────────────────────── */
+  --inspector-width: 360px;
+  --filter-pill-width: 360px;
+  --legend-width: 236px;
+  --toolbar-height: 44px;
+  --control-height: 28px;
+  --row-height: 28px;
+  --chip-height: 20px;
+  --hit-min: 28px;
+  --icon-xs: 12px;
+  --icon-sm: 14px;
+  --icon-md: 16px;
+  --icon-lg: 20px;
+  /* 与 map-config.ts 的缩放档位对应 */
+  --pin-size: 28px;
+  /* 不显示 logo 的实心点刻意比近景小一大截，让「出现 logo」成为明显的跳变（用户要求） */
+  --pin-size-mid: 14px;
+  --pin-size-far: 10px;
+  --pin-size-selected: 34px;
+  --pin-size-dimmed: 6px;
+  --pin-size-glyph: 22px;
+  --pin-ring: 2px;
+  --pin-ring-far: 1.5px;
+  --pin-gap: 2px;
+  --pin-gap-far: 1.5px;
+  --pin-notch: 9px;
+  --pin-notch-mid: 6px;
+  --pin-notch-far: 5px;
+  /* 限定天数角标：固定尺寸，不随标记缩放，近景标记上数字也读得清 */
+  --pin-badge-height: 14px;
+  /* 与 map-config.ts 的 ORIGIN_MERGE_PX 对应 */
+  --origin-pin-size: 32px;
+  --origin-pin-size-sm: 22px;
+  /* 头像外的玻璃隔离圈：半堆叠时把相邻头像分开 */
+  --avatar-ring: 2px;
+
+  /* ── 叠放层级 ────────────────────────────────────────────── */
+  --z-map: 0;
+  --z-panels: 10;
+  --z-inspector: 12;
+  --z-controls: 13;
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+/* §3.2 透明度档位（对应 macOS 的透明度滑杆）。index.html 默认 clear = macOS 26 原版观感 */
+:root[data-glass="clear"] { --glass-opacity: 0.58; }
+:root[data-glass="tinted"] { --glass-opacity: 0.9; }
+
+/* §12 无障碍偏好 */
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glass-opacity: 1; }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --glass-opacity: 0.95;
+    --hairline: var(--text-tertiary);
+    --text-secondary: light-dark(rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.75));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-instant: 0ms;
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}

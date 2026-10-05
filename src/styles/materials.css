@@ -1,0 +1,73 @@
+/*
+ * design.md §3：Liquid Glass 材质。
+ * 层次 = 背景模糊 + 饱和度提升 + 顶部液态反光 + 边缘折射高光 + 发丝描边，而不是靠重阴影。
+ * .glass 不设定位方式，由使用它的面板决定（面板都是 fixed，::before 以面板为定位参照）。
+ */
+
+.glass {
+  --_blur: var(--glass-blur-chrome);
+  --_saturate: var(--glass-saturate-chrome);
+  --_opacity: var(--glass-opacity);
+  --_shadow: var(--shadow-2);
+
+  isolation: isolate;
+  color: var(--text-primary);
+  background:
+    linear-gradient(180deg, var(--glass-sheen), transparent 38%),
+    linear-gradient(var(--glass-scrim), var(--glass-scrim)),
+    color-mix(in srgb, var(--glass-base) calc(var(--_opacity) * 100%), transparent);
+  -webkit-backdrop-filter: blur(var(--_blur)) saturate(var(--_saturate));
+  backdrop-filter: blur(var(--_blur)) saturate(var(--_saturate));
+  box-shadow:
+    0 0 0 1px var(--hairline),
+    inset 0 1px 0 var(--glass-specular),
+    var(--_shadow);
+}
+
+.glass[data-tier="float"] {
+  --_blur: var(--glass-blur-float);
+  --_saturate: var(--glass-saturate-float);
+  --_opacity: min(1, calc(var(--glass-opacity) + 0.04));
+  --_shadow: var(--shadow-2);
+}
+
+.glass[data-tier="overlay"] {
+  --_blur: var(--glass-blur-overlay);
+  --_saturate: var(--glass-saturate-overlay);
+  --_opacity: min(1, calc(var(--glass-opacity) + 0.12));
+  --_shadow: var(--shadow-3);
+}
+
+/* 边缘折射高光：1px 的渐变环，左上和右下最亮。mask 只取 alpha，black 不是可见颜色 */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    var(--glass-rim-strong),
+    var(--glass-rim-weak) 30%,
+    transparent 50%,
+    var(--glass-rim-weak) 72%,
+    var(--glass-rim-strong)
+  );
+  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(black 0 0) content-box exclude, linear-gradient(black 0 0);
+  pointer-events: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--surface-solid); }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--surface-solid);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

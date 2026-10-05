@@ -1,0 +1,356 @@
+/* ── 顶部居中的筛选胶囊（macOS 26 工具栏胶囊） ── */
+.filter-pill {
+  position: fixed;
+  z-index: var(--z-panels);
+  top: var(--edge);
+  left: 50%;
+  width: var(--filter-pill-width);
+  /* 居中时两侧各让出右上角控件列的宽度，保证对称且不压到控件 */
+  max-width: calc(100vw - 2 * (var(--edge) + var(--toolbar-height) + var(--s-4)));
+  padding: var(--s-2);
+  border-radius: var(--r-pill);
+  transform: translateX(-50%);
+}
+
+/* 胶囊本身就是轨道：分段控件去掉自己的底色和内边距，高度跟随工具栏 */
+.filter-pill .segmented {
+  height: calc(var(--toolbar-height) - 2 * var(--s-2));
+  padding: 0;
+  background: none;
+}
+
+.filter-pill .segmented__lens {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc(100% / var(--_count));
+}
+
+.filter-pill .segmented__item {
+  font-size: var(--fs-body);
+}
+
+/* ── 右上角的圆形玻璃按钮：明暗切换、图例开关 ── */
+.corner-button {
+  --icon-size: var(--icon-md);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--toolbar-height);
+  height: var(--toolbar-height);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: transform var(--motion-instant) var(--ease-out);
+}
+
+.corner-button:hover,
+.corner-button[aria-expanded="true"] {
+  color: var(--accent);
+}
+
+.corner-button:active {
+  transform: scale(0.94);
+}
+
+/* 图例开关只在手机宽度出现（见下方 < 600 的媒体查询） */
+.legend-toggle {
+  display: none;
+}
+
+/* ── 图例（右下角） ── */
+.legend {
+  position: fixed;
+  z-index: var(--z-panels);
+  right: var(--edge);
+  bottom: calc(var(--edge) + env(safe-area-inset-bottom));
+  display: grid;
+  gap: var(--s-4);
+  width: var(--legend-width);
+  padding: var(--s-5) var(--s-6);
+  border-radius: var(--r-lg);
+  transition: opacity var(--motion-fast) var(--ease-out);
+}
+
+.legend__list {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.legend__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  color: var(--text-secondary);
+  font-size: var(--fs-callout);
+  line-height: var(--lh-callout);
+}
+
+
+/* 详情卡打开时它本身就解释了标记含义；收起图例，避免两块玻璃叠在一起 */
+body:has(.inspector) .legend {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── 雪场详情检查器 ── */
+.inspector {
+  position: fixed;
+  z-index: var(--z-inspector);
+  top: var(--edge);
+  right: calc(var(--edge) + var(--toolbar-height) + var(--s-5));
+  display: flex;
+  flex-direction: column;
+  width: var(--inspector-width);
+  max-height: calc(100dvh - 2 * var(--edge));
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  animation: inspector-in var(--motion-fast) var(--ease-glass);
+}
+
+@keyframes inspector-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--s-2) * -1)) scale(0.96);
+  }
+}
+
+.inspector__header {
+  position: relative;
+  display: grid;
+  gap: var(--s-2);
+  padding: var(--s-6) var(--s-6) var(--s-5);
+}
+
+.inspector__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.inspector__header h2 {
+  padding-right: calc(var(--hit-min) + var(--s-4));
+  font-family: var(--font-display);
+  font-size: var(--fs-title-1);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-title-1);
+  letter-spacing: var(--tracking-title-1);
+}
+
+.inspector__header h2:focus {
+  outline: none;
+}
+
+.inspector__header h2:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+.inspector__subtitle {
+  color: var(--text-secondary);
+  font-size: var(--fs-callout);
+  line-height: var(--lh-callout);
+}
+
+.inspector__close {
+  position: absolute;
+  top: var(--s-5);
+  right: var(--s-5);
+}
+
+/* 操作按钮：仿 macOS 地图地点卡片的竖排按钮（图标 / 名称 / 目的地），等宽两列 */
+.inspector__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4);
+  margin-top: var(--s-4);
+}
+
+.action-tile {
+  --icon-size: var(--icon-lg);
+  display: grid;
+  justify-items: center;
+  gap: var(--s-1);
+  min-width: 0;
+  padding: var(--s-4) var(--s-4) var(--s-3);
+  border-radius: var(--r-lg);
+  background: var(--fill-hover);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition:
+    background var(--motion-instant) var(--ease-out),
+    transform var(--motion-instant) var(--ease-out);
+}
+
+.action-tile:hover {
+  background: var(--fill-active);
+}
+
+.action-tile:active {
+  transform: scale(0.98);
+}
+
+/* 图标用系统强调色（图形只需 3:1）；文字保持主色，保证 4.5:1 */
+.action-tile .icon {
+  color: var(--accent);
+}
+
+.action-tile__label {
+  font-size: var(--fs-callout);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-callout);
+}
+
+.action-tile__meta {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: var(--fs-footnote);
+  line-height: var(--lh-footnote);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inspector__body {
+  display: grid;
+  gap: var(--s-6);
+  padding: 0 var(--s-6) var(--s-6);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.access-hero {
+  --_soft: var(--pass-epic-soft);
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  padding: var(--s-5);
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, var(--_soft), transparent 80%), var(--card-bg);
+  box-shadow: 0 0 0 1px var(--hairline);
+}
+
+.access-hero[data-pass="ikon-base"] {
+  --_soft: var(--pass-ikon-soft);
+}
+
+.access-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-title-2);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-title-2);
+}
+
+.access-hero__subtitle {
+  color: var(--text-secondary);
+  font-size: var(--fs-callout);
+  line-height: var(--lh-callout);
+}
+
+.info-row {
+  --icon-size: var(--icon-md);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: var(--s-4);
+  color: var(--text-secondary);
+}
+
+.info-row__label {
+  color: var(--text-secondary);
+  font-size: var(--fs-subheadline);
+  font-weight: var(--weight-semibold);
+  line-height: var(--lh-subheadline);
+}
+
+.info-row__value {
+  color: var(--text-primary);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.date-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+.date-list li {
+  padding: var(--s-1) var(--s-4);
+  border-radius: var(--r-pill);
+  background: var(--fill-hover);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  font-size: var(--fs-callout);
+  font-variant-numeric: tabular-nums;
+}
+
+.inspector__notes {
+  display: grid;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  border-radius: var(--r-md);
+  background: var(--fill-hover);
+  color: var(--text-secondary);
+  font-size: var(--fs-callout);
+  line-height: var(--lh-callout);
+}
+
+.inspector__footer {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-2);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--separator);
+  color: var(--text-secondary);
+  font-size: var(--fs-footnote);
+  line-height: var(--lh-footnote);
+}
+
+.inspector__footer .link {
+  font-size: var(--fs-subheadline);
+}
+
+/* ── 中等宽度（960–1279）：顶部筛选胶囊和详情卡会横向重叠，详情卡下移到胶囊下方 ── */
+@media (min-width: 960px) and (max-width: 1279px) {
+  .inspector {
+    top: calc(var(--edge) + var(--toolbar-height) + var(--s-4));
+    max-height: calc(100dvh - 2 * var(--edge) - var(--toolbar-height) - var(--s-4));
+  }
+}
+
+/* ── 窄屏（< 960）：详情卡变成底部卡片 ── */
+@media (max-width: 959px) {
+  .inspector {
+    top: auto;
+    right: var(--s-4);
+    bottom: calc(var(--s-4) + env(safe-area-inset-bottom));
+    left: var(--s-4);
+    width: auto;
+    max-height: 62dvh;
+  }
+}
+
+/* ── 手机宽度（< 600）：居中放不下，筛选胶囊改为左对齐，右侧让出控件列 ── */
+@media (max-width: 599px) {
+  .filter-pill {
+    right: calc(var(--edge) + var(--toolbar-height) + var(--s-4));
+    left: var(--edge);
+    width: auto;
+    max-width: none;
+    transform: none;
+  }
+
+  /* 图例默认收起，给地图让出空间；右上角的 ⓘ 按钮打开 */
+  .legend-toggle {
+    display: grid;
+  }
+
+  .legend:not([data-open="true"]) {
+    display: none;
+  }
+}

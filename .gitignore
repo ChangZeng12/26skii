@@ -1,0 +1,14 @@
+node_modules
+dist
+*.local
+.DS_Store
+.vite
+
+# Friends' original photos stay local; only approved thumbnails may be published.
+src/icon/
+
+# Local credentials and logs do not belong in the public repository.
+.env
+.env.*
+!.env.example
+*.log

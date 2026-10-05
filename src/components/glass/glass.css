@@ -1,0 +1,127 @@
+/* ── 分段控件（design.md §8）：macOS 26 的胶囊轨道 + 滑动玻璃镜片 ── */
+.segmented {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--_count), minmax(0, 1fr));
+  height: var(--control-height);
+  padding: var(--s-1);
+  border-radius: var(--r-pill);
+  background: var(--fill-active);
+}
+
+.segmented__lens {
+  position: absolute;
+  top: var(--s-1);
+  bottom: var(--s-1);
+  left: var(--s-1);
+  width: calc((100% - 2 * var(--s-1)) / var(--_count));
+  border-radius: var(--r-pill);
+  background: var(--lens-bg);
+  box-shadow: var(--shadow-1), inset 0 1px 0 var(--glass-specular);
+  transform: translateX(calc(100% * var(--_index)));
+  transition: transform var(--motion-base) var(--ease-glass);
+}
+
+.segmented__item {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-width: 0;
+  padding: 0 var(--s-4);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: none;
+  color: var(--text-secondary);
+  font-size: var(--fs-callout);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--motion-fast) var(--ease-out);
+}
+
+.segmented__item:hover {
+  color: var(--text-primary);
+}
+
+.segmented__item[aria-checked="true"] {
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+/* 等宽分段在窄侧栏里放不下「色点 + Epic Local」：先去掉色点，文字仍完整 */
+.segmented {
+  container-type: inline-size;
+}
+
+@container (max-width: 300px) {
+  .segmented__dot {
+    display: none;
+  }
+}
+
+/* 分段控件里的 pass 圆点 */
+.segmented__dot {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+/* ── Chip（design.md §8） ── */
+.chip {
+  --_soft: var(--fill-hover);
+  --_strong: var(--text-secondary);
+  --icon-size: var(--icon-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  height: var(--chip-height);
+  padding: 0 var(--s-4);
+  border-radius: var(--r-pill);
+  background: var(--_soft);
+  color: var(--_strong);
+  font-size: var(--fs-footnote);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-footnote);
+  white-space: nowrap;
+}
+
+.chip .icon {
+  stroke-width: 2.6;
+}
+
+.chip[data-tone="epic-local"] { --_soft: var(--pass-epic-soft); --_strong: var(--pass-epic-text); }
+.chip[data-tone="ikon-base"] { --_soft: var(--pass-ikon-soft); --_strong: var(--pass-ikon-text); }
+.chip[data-tone="warning"] { --_soft: var(--state-warning-soft); --_strong: var(--state-warning-strong); }
+.chip[data-tone="ok"] { --_soft: var(--state-ok-soft); --_strong: var(--state-ok-strong); }
+
+/* ── 圆形图标按钮 ── */
+.icon-button {
+  --icon-size: var(--icon-sm);
+  display: grid;
+  place-items: center;
+  width: var(--hit-min);
+  height: var(--hit-min);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--fill-hover);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--motion-instant) var(--ease-out), color var(--motion-instant) var(--ease-out);
+}
+
+.icon-button:hover {
+  background: var(--fill-active);
+  color: var(--text-primary);
+}
+
+.icon-button:active {
+  transform: scale(0.96);
+}
+
+.icon-button .icon {
+  stroke-width: 2.4;
+}

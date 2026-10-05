@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "verifiedOn": "2026-10-05",
+    "coordsSource": "城市中心点（city centroid），非具体住址",
+    "note": "people 是每个出发地的同行者，avatar 指向 src/assets/avatars/ 下的缩略图（原图在 src/icon/，用 scripts/make-avatars.py 生成）。出发人数 = people 的长度。"
+  },
+  "origins": [
+    {
+      "id": "sf",
+      "label": "旧金山",
+      "labelEn": "San Francisco, CA",
+      "state": "CA",
+      "coords": [-122.4194, 37.7749],
+      "homeAirports": ["SFO", "OAK", "SJC"],
+      "people": [{ "id": "sf-1", "avatar": "SF1.jpg" }],
+      "enabled": true
+    },
+    {
+      "id": "arlington-va",
+      "label": "阿灵顿",
+      "labelEn": "Arlington, VA",
+      "state": "VA",
+      "coords": [-77.1011, 38.8816],
+      "homeAirports": ["DCA", "IAD"],
+      "people": [
+        { "id": "va-1", "avatar": "VA1.jpg" },
+        { "id": "va-2", "avatar": "VA2.jpg" }
+      ],
+      "enabled": true
+    },
+    {
+      "id": "baltimore",
+      "label": "巴尔的摩",
+      "labelEn": "Baltimore, MD",
+      "state": "MD",
+      "coords": [-76.6122, 39.2904],
+      "homeAirports": ["BWI"],
+      "people": [{ "id": "bal-1", "avatar": "BAL.jpg" }],
+      "enabled": true
+    },
+    {
+      "id": "madison",
+      "label": "麦迪逊",
+      "labelEn": "Madison, WI",
+      "state": "WI",
+      "coords": [-89.4012, 43.0731],
+      "homeAirports": ["MSN", "ORD", "MKE"],
+      "people": [{ "id": "mad-1", "avatar": "MAD.jpg" }],
+      "enabled": true
+    },
+    {
+      "id": "nyc",
+      "label": "纽约",
+      "labelEn": "New York, NY",
+      "state": "NY",
+      "coords": [-74.006, 40.7128],
+      "homeAirports": ["EWR", "JFK", "LGA"],
+      "people": [{ "id": "nyc-1", "avatar": "NY.jpg" }],
+      "enabled": true
+    },
+    {
+      "id": "boston",
+      "label": "波士顿",
+      "labelEn": "Boston, MA",
+      "state": "MA",
+      "coords": [-71.0589, 42.3601],
+      "homeAirports": ["BOS"],
+      "people": [
+        { "id": "bos-1", "avatar": "BOS1.jpg" },
+        { "id": "bos-2", "avatar": "BOS2.jpg" }
+      ],
+      "enabled": true
+    }
+  ]
+}
