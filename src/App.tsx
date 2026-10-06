@@ -9,6 +9,7 @@ import { FilterPill } from './components/panels/FilterPill';
 import { Legend } from './components/panels/Legend';
 import { LegendToggle } from './components/panels/LegendToggle';
 import { ResortCard } from './components/panels/ResortCard';
+import { ResortSearch } from './components/panels/ResortSearch';
 import { MapContext } from './hooks/useMap';
 import { AppStateProvider } from './state/AppStateProvider';
 
@@ -25,6 +26,7 @@ export function App() {
             <OriginLayer />
           </>
         )}
+        <ResortSearch />
         <FilterPill />
         {/* 右上角：缩放控件 + 明暗切换（+ 手机宽度下的图例开关），竖排在同一列 */}
         <div className="corner-controls">

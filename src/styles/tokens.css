@@ -176,6 +176,10 @@
   /* ── §8 组件尺寸 ─────────────────────────────────────────── */
   --inspector-width: 360px;
   --filter-pill-width: 360px;
+  --search-width: 280px;
+  --search-results-height: 320px;
+  /* 输入框保持 16px，防止手机浏览器聚焦时自动放大整个地图。 */
+  --search-input-size: 1rem;
   --legend-width: 236px;
   --toolbar-height: 44px;
   --control-height: 28px;

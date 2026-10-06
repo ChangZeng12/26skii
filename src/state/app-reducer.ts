@@ -9,6 +9,7 @@ export type SelectionSource = 'pointer' | 'keyboard';
 export interface Selection {
   resortId: string;
   source: SelectionSource;
+  via?: 'search';
 }
 
 export interface AppState {
@@ -19,6 +20,7 @@ export interface AppState {
 export type AppAction =
   | { type: 'setPassFilter'; filter: PassFilter }
   | { type: 'selectResort'; resortId: string; source: SelectionSource }
+  | { type: 'selectSearchResult'; resortId: string; source: SelectionSource }
   | { type: 'clearSelection' };
 
 export const initialAppState: AppState = { passFilter: 'all', selection: null };
@@ -36,6 +38,14 @@ export function appReducer(state: AppState, action: AppAction): AppState {
     case 'selectResort':
       if (!RESORTS_BY_ID.has(action.resortId)) return state;
       return { ...state, selection: { resortId: action.resortId, source: action.source } };
+    case 'selectSearchResult': {
+      const resort = RESORTS_BY_ID.get(action.resortId);
+      if (!resort) return state;
+      return {
+        passFilter: matchesFilter(resort.access.pass, state.passFilter) ? state.passFilter : 'all',
+        selection: { resortId: resort.id, source: action.source, via: 'search' },
+      };
+    }
     case 'clearSelection':
       return state.selection ? { ...state, selection: null } : state;
   }

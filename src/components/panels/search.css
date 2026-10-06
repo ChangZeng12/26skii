@@ -1,0 +1,105 @@
+.resort-search {
+  position: fixed;
+  z-index: var(--z-controls);
+  top: var(--edge);
+  left: var(--edge);
+  width: var(--search-width);
+  max-width: calc(100vw - 2 * var(--edge) - var(--toolbar-height) - var(--s-4));
+}
+
+.resort-search__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  height: var(--toolbar-height);
+  padding-left: var(--s-6);
+  padding-right: var(--s-2);
+  border-radius: var(--r-pill);
+}
+
+.resort-search__bar > .icon { color: var(--text-secondary); }
+
+.resort-search input {
+  min-width: 0;
+  width: 100%;
+  height: var(--control-height);
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+  background: transparent;
+  font: inherit;
+  font-size: var(--search-input-size);
+}
+
+.resort-search input::placeholder { color: var(--text-secondary); }
+.resort-search input:focus-visible {
+  outline: var(--s-1) solid var(--accent);
+  outline-offset: var(--s-1);
+}
+
+.resort-search__clear {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--toolbar-height);
+  align-self: stretch;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  cursor: pointer;
+}
+.resort-search__clear:hover { background: var(--fill-hover); }
+
+.resort-search__dropdown {
+  position: absolute;
+  top: calc(var(--toolbar-height) + var(--s-4));
+  width: 100%;
+  padding: var(--s-2);
+  border-radius: var(--r-lg);
+}
+
+.resort-search__status {
+  padding: var(--s-4) var(--s-5);
+  color: var(--text-secondary);
+  font-size: var(--fs-callout);
+  line-height: var(--lh-callout);
+}
+
+.resort-search__results {
+  max-height: min(var(--search-results-height), calc(100dvh - 3 * var(--toolbar-height) - 4 * var(--edge)));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.resort-search__result {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  min-height: var(--toolbar-height);
+  padding: var(--s-4) var(--s-5);
+  border-radius: var(--r-md);
+  cursor: pointer;
+}
+.resort-search__result[aria-selected="true"] { background: var(--fill-active); }
+.resort-search__result .pass-dot { width: var(--icon-lg); height: var(--icon-lg); }
+.resort-search__result > .icon { color: var(--text-secondary); }
+.resort-search__text { display: grid; gap: var(--s-1); flex: 1; min-width: 0; }
+.resort-search__name { font-weight: var(--weight-medium); overflow-wrap: anywhere; }
+.resort-search__meta { color: var(--text-secondary); font-size: var(--fs-callout); line-height: var(--lh-callout); }
+
+/* 搜索与筛选各占一行，右侧始终给地图控件留出空间。 */
+@media (max-width: 1023px) {
+  .resort-search { width: var(--filter-pill-width); }
+  .filter-pill {
+    top: calc(var(--edge) + var(--toolbar-height) + var(--s-4));
+    left: var(--edge);
+    right: auto;
+    width: var(--filter-pill-width);
+    max-width: calc(100vw - 2 * var(--edge) - var(--toolbar-height) - var(--s-4));
+    transform: none;
+  }
+  .resort-search__dropdown { top: calc(2 * (var(--toolbar-height) + var(--s-4))); }
+}

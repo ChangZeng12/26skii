@@ -4,6 +4,7 @@ import { DATA_META, RESORTS_BY_ID } from '../../lib/data';
 import { passShortName, regionName, stateName } from '../../lib/labels';
 import { displayHost, googleMapsUrl } from '../../lib/links';
 import { useCamera } from '../../hooks/useCamera';
+import { ZOOM_TIER_NEAR } from '../map/map-config';
 import { useAppDispatch, useAppState } from '../../state/context';
 import { Chip } from '../glass/Chip';
 import { GlassPanel } from '../glass/GlassPanel';
@@ -35,8 +36,11 @@ export function ResortCard() {
     if (!selection || !camera) return;
     const target = RESORTS_BY_ID.get(selection.resortId);
     if (!target) return;
-    // 等这次提交的布局（详情卡出现）生效后再计算避让区域；标记被详情卡挡住时才平移
-    const frame = requestAnimationFrame(() => camera.ensureVisible(target.coords));
+    // 搜索选择时主动定位到可辨认雪场名的缩放档位；地图点选只在被遮挡时平移。
+    const frame = requestAnimationFrame(() => {
+      if (selection.via === 'search') camera.fitCoords([target.coords], ZOOM_TIER_NEAR);
+      else camera.ensureVisible(target.coords);
+    });
     return () => cancelAnimationFrame(frame);
   }, [selection, camera]);
 

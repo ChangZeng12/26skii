@@ -14,7 +14,8 @@
 ## 2. 当前状态（全部可运行）
 
 - Vite 8 + React 19 + TS 6.0 + MapLibre GL v6 + OpenFreeMap 底图，样式是原生 CSS + token（macOS 26 Liquid Glass）。
-- `typecheck` / `lint` / `test`（7 个文件 49 个用例）/ `validate:data` / `build` 全绿，`npm audit` 0 漏洞。
+- `typecheck` / `lint` / `test`（8 个文件 57 个用例）/ `validate:data` / `build` 全绿。初版 `npm audit` 为 0 漏洞，本次未重新执行。
+- 2026-10-05 搜索更新：内置浏览器连接反复超时，本次未完成浅深色、桌面/手机尺寸、键盘和系统减少动效/透明度偏好的浏览器验收；不要把单元测试通过等同于已完成视觉验收。
 - 已初始化 Git，默认分支为 `main`；用户指定源码发布到 `https://github.com/ChangZeng12/26skii`。原图 `src/icon/` 已加入 `.gitignore`，只提交获准公开的缩略图。
 - 用户已要求启用 GitHub Pages：`https://changzeng12.github.io/26skii/`。部署工作流为 `.github/workflows/pages.yml`，`main` 推送后通过检查再发布 `dist/`；Vite `base` 为 `/26skii/`。本地开发与预览也使用该子路径。
 - README 按用户要求只保留「到底去哪里滑雪？」一句，不再添加技术说明。
@@ -26,6 +27,7 @@
 | 地图 | 72 个雪场标记，按缩放三档：远景 / 中景是实心点（pass 色 + 形状，中景加封锁日红点）；近景（zoom ≥ 7）才显示品牌圆点 logo（`epicdot.svg` / `ikondot.svg`）、虚线环 + 天数角标、雪场名。标记可 Tab 聚焦 |
 | 出发地 | 每人一个圆形头像，同城多人或缩小后多城合并时横向半堆叠；点合并标记会放大拆开 |
 | 顶部居中 | 悬浮玻璃胶囊：全部 / Epic Local / Ikon Base 筛选 |
+| 左上角搜索 | 按雪场名称搜索全部 72 个雪场；选择后定位到 zoom 7 并打开详情，跨 pass 选择自动切回「全部」。支持上下键/回车/Esc，键盘关闭详情后焦点返回搜索输入框。<1024 时筛选位于搜索下方 |
 | 右上角 | 缩放（+ / −）+ 明暗切换（太阳 / 月亮，点击直接切换，存 localStorage） |
 | 右下角 | 图例（只有雪场标记含义；手机宽度默认收起，右上角 ⓘ 打开） |
 | 详情卡 | 「官网」「位置（Google 地图）」两个按钮、通行方式、共享天数池、封锁日、预约、说明 |

@@ -2,10 +2,11 @@ import type { ReactElement } from 'react';
 
 export type IconName =
   | 'plus' | 'minus' | 'close' | 'external' | 'check' | 'alert' | 'calendar' | 'ticket'
-  | 'info' | 'pin' | 'person' | 'globe' | 'sun' | 'moon';
+  | 'info' | 'pin' | 'person' | 'globe' | 'sun' | 'moon' | 'search';
 
 /** 24×24 线性图标，风格对齐 SF Symbols 的 regular 字重：圆角端点、等宽描边 */
 const PATHS: Record<IconName, ReactElement> = {
+  search: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></>,
   plus: <path d="M12 5v14M5 12h14" />,
   minus: <path d="M5 12h14" />,
   close: <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" />,

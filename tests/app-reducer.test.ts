@@ -4,6 +4,17 @@ import { appReducer, initialAppState, type AppState } from '../src/state/app-red
 const withVailSelected: AppState = { passFilter: 'all', selection: { resortId: 'vail', source: 'keyboard' } };
 
 describe('appReducer', () => {
+  it('搜索到另一张 pass 的雪场时切回全部并标记定位来源', () => {
+    const next = appReducer({ ...initialAppState, passFilter: 'ikon-base' },
+      { type: 'selectSearchResult', resortId: 'vail', source: 'keyboard' });
+    expect(next).toEqual({ passFilter: 'all', selection: { resortId: 'vail', source: 'keyboard', via: 'search' } });
+  });
+
+  it('搜索结果属于当前 pass 时保留筛选，并忽略未知 id', () => {
+    const state: AppState = { ...initialAppState, passFilter: 'epic-local' };
+    expect(appReducer(state, { type: 'selectSearchResult', resortId: 'vail', source: 'pointer' }).passFilter).toBe('epic-local');
+    expect(appReducer(state, { type: 'selectSearchResult', resortId: 'missing', source: 'keyboard' })).toBe(state);
+  });
   it('默认不预选任何一张 pass（agents.md §13）', () => {
     expect(initialAppState).toEqual({ passFilter: 'all', selection: null });
   });
