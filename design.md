@@ -339,7 +339,7 @@ Dark 模式阴影 alpha 加倍（`.10 → .20` 等），因为深色下靠阴影
 1. 对比度：正文 ≥ 4.5:1，大字与图形 ≥ 3:1。**在玻璃上的文字必须按最差底图测**（纯白雪地 / 深色夜间）。
 2. `prefers-reduced-transparency: reduce` → 玻璃转实色（`--surface-solid`），移除 `backdrop-filter`。
 3. `prefers-contrast: more` → 描边改 `--text-tertiary`，玻璃不透明度拉到 0.95。
-4. 焦点环：`outline: 2px solid var(--accent); outline-offset: 2px;` + `box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent)`。绝不 `outline: none`。
+4. 焦点环：`outline: 2px solid var(--accent); outline-offset: 2px;` + `box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent)`。一般不使用 `outline: none`。**搜索输入框例外（用户 2026-10-05 要求）**：去掉内部蓝色描边，聚焦时通过输入光标与整个玻璃胶囊的 `--shadow-3` 阴影反馈；其他控件的焦点环不变。
 5. 键盘用户不依赖鼠标：没有雪场列表后，**地图标记本身可 Tab 聚焦**（淡化的灰点除外），回车 / 空格打开详情卡。
 6. 颜色不是唯一编码：pass 用颜色 + 形状 + 图标 + 文字标签四重区分。
 7. 所有图标按钮有 `aria-label`；**模态**浮层用 `role="dialog"` + focus trap + `Esc` 关闭。

@@ -34,9 +34,12 @@
 }
 
 .resort-search input::placeholder { color: var(--text-secondary); }
-.resort-search input:focus-visible {
-  outline: var(--s-1) solid var(--accent);
-  outline-offset: var(--s-1);
+.resort-search input:focus {
+  /* 用户要求去掉输入框内的蓝色描边；聚焦反馈移到整个玻璃胶囊。 */
+  outline: none;
+}
+.resort-search__bar:has(input:focus-visible) {
+  box-shadow: 0 0 0 1px var(--hairline), inset 0 1px 0 var(--glass-specular), var(--shadow-3);
 }
 
 .resort-search__clear {
