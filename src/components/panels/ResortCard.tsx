@@ -11,6 +11,7 @@ import { GlassPanel } from '../glass/GlassPanel';
 import { Icon } from '../Icon';
 import { PinGlyph } from '../PinGlyph';
 import { InfoRow } from './InfoRow';
+import { MountainStats } from './MountainStats';
 
 
 /**
@@ -78,7 +79,7 @@ export function ResortCard() {
         <div className="inspector__chips">
           <Chip tone={access.pass}>{passShortName(pass)}</Chip>
           {access.confidence === 'verified' ? (
-            <Chip tone="ok" title={`已于 ${access.verifiedOn} 对照官方数据核实`}>
+            <Chip tone="ok" title={`通行条款已于 ${access.verifiedOn} 对照官方数据核实`}>
               <Icon name="check" />
               已核实
             </Chip>
@@ -126,6 +127,7 @@ export function ResortCard() {
       </header>
 
       <div className="inspector__body">
+        <MountainStats stats={resort.mountainStats} website={resort.website} />
         <section className="access-hero" data-pass={access.pass} aria-label="通行方式">
           <PinGlyph pass={access.pass} kind={access.kind} blackout={access.blackoutSet !== null} days={access.days} size="lg" />
           <div>

@@ -1,0 +1,2042 @@
+{
+  "vail": {
+    "sources": [
+      "https://www.vail.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 278,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 18
+          },
+          {
+            "level": "intermediate",
+            "value": 29
+          },
+          {
+            "level": "advanced-expert",
+            "value": 53
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 32
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "beaver-creek": {
+    "sources": [
+      "https://www.beavercreek.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 167,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 28
+          },
+          {
+            "level": "intermediate",
+            "value": 38
+          },
+          {
+            "level": "advanced-expert",
+            "value": 34
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 24
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "park-city": {
+    "sources": [
+      "https://www.parkcitymountain.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 330,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 8
+          },
+          {
+            "level": "intermediate",
+            "value": 42
+          },
+          {
+            "level": "advanced-expert",
+            "value": 50
+          }
+        ]
+      },
+      "atLeast": true
+    },
+    "lifts": {
+      "total": 41
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "heavenly": {
+    "sources": [
+      "https://www.skiheavenly.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 111,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 15
+          },
+          {
+            "level": "intermediate",
+            "value": 53
+          },
+          {
+            "level": "advanced-expert",
+            "value": 32
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 28
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "northstar": {
+    "sources": [
+      "https://www.northstarcalifornia.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 100,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 13
+          },
+          {
+            "level": "intermediate",
+            "value": 60
+          },
+          {
+            "level": "advanced-expert",
+            "value": 27
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 20
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "kirkwood": {
+    "sources": [
+      "https://www.kirkwood.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 86,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 12
+          },
+          {
+            "level": "intermediate",
+            "value": 30
+          },
+          {
+            "level": "advanced",
+            "value": 38
+          },
+          {
+            "level": "expert",
+            "value": 20
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 15
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯。"
+    ]
+  },
+  "stowe": {
+    "sources": [
+      "https://www.stowe.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 116,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 16
+          },
+          {
+            "level": "intermediate",
+            "value": 55
+          },
+          {
+            "level": "advanced-expert",
+            "value": 29
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 12
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "breckenridge": {
+    "sources": [
+      "https://www.breckenridge.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 187,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 11
+          },
+          {
+            "level": "intermediate",
+            "value": 31
+          },
+          {
+            "level": "advanced",
+            "value": 24
+          },
+          {
+            "level": "expert",
+            "value": 34
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 35
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯。"
+    ]
+  },
+  "keystone": {
+    "sources": [
+      "https://www.keystoneresort.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 140,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 12
+          },
+          {
+            "level": "intermediate",
+            "value": 39
+          },
+          {
+            "level": "advanced-expert",
+            "value": 49
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 21
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "crested-butte": {
+    "sources": [
+      "https://www.skicb.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 165,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 14
+          },
+          {
+            "level": "intermediate",
+            "value": 24
+          },
+          {
+            "level": "advanced",
+            "value": 25
+          },
+          {
+            "level": "expert",
+            "value": 37
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 15
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯。"
+    ]
+  },
+  "stevens-pass": {
+    "sources": [
+      "https://www.stevenspass.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 52,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 11
+          },
+          {
+            "level": "intermediate",
+            "value": 54
+          },
+          {
+            "level": "advanced-expert",
+            "value": 35
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 13
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "mount-snow": {
+    "sources": [
+      "https://www.mountsnow.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 86,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 16
+          },
+          {
+            "level": "intermediate",
+            "value": 66
+          },
+          {
+            "level": "advanced-expert",
+            "value": 18
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 18
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "okemo": {
+    "sources": [
+      "https://www.okemo.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 123,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 33
+          },
+          {
+            "level": "intermediate",
+            "value": 37
+          },
+          {
+            "level": "advanced-expert",
+            "value": 30
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 20
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "mount-sunapee": {
+    "sources": [
+      "https://www.mountsunapee.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 67,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 29
+          },
+          {
+            "level": "intermediate",
+            "value": 47
+          },
+          {
+            "level": "advanced-expert",
+            "value": 24
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 8
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "attitash": {
+    "sources": [
+      "https://www.attitash.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 76,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 29
+          },
+          {
+            "level": "intermediate",
+            "value": 44
+          },
+          {
+            "level": "advanced-expert",
+            "value": 27
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 8
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "wildcat": {
+    "sources": [
+      "https://www.skiwildcat.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 48,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 20
+          },
+          {
+            "level": "intermediate",
+            "value": 47
+          },
+          {
+            "level": "advanced-expert",
+            "value": 33
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 5
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "crotched": {
+    "sources": [
+      "https://www.crotchedmtn.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 25,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 28
+          },
+          {
+            "level": "intermediate",
+            "value": 40
+          },
+          {
+            "level": "advanced-expert",
+            "value": 32
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 5
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "hunter-mountain": {
+    "sources": [
+      "https://www.huntermtn.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 67,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 25
+          },
+          {
+            "level": "intermediate",
+            "value": 30
+          },
+          {
+            "level": "advanced-expert",
+            "value": 45
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 13
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "liberty-mountain": {
+    "sources": [
+      "https://www.libertymountainresort.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 16,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 35
+          },
+          {
+            "level": "intermediate",
+            "value": 40
+          },
+          {
+            "level": "advanced-expert",
+            "value": 25
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 8
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "roundtop": {
+    "sources": [
+      "https://www.skiroundtop.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 21,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 19
+          },
+          {
+            "level": "intermediate",
+            "value": 24
+          },
+          {
+            "level": "advanced-expert",
+            "value": 57
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 9
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "whitetail": {
+    "sources": [
+      "https://www.skiwhitetail.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 23,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 26
+          },
+          {
+            "level": "intermediate",
+            "value": 48
+          },
+          {
+            "level": "advanced-expert",
+            "value": 26
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 9
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "jack-frost": {
+    "sources": [
+      "https://www.jfbb.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 20,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 21
+          },
+          {
+            "level": "intermediate",
+            "value": 37
+          },
+          {
+            "level": "advanced-expert",
+            "value": 42
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 9
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "big-boulder": {
+    "sources": [
+      "https://www.jfbb.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 19,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 37
+          },
+          {
+            "level": "intermediate",
+            "value": 19
+          },
+          {
+            "level": "advanced-expert",
+            "value": 44
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 7
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "seven-springs": {
+    "sources": [
+      "https://www.7springs.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 33,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 34
+          },
+          {
+            "level": "intermediate",
+            "value": 44
+          },
+          {
+            "level": "advanced-expert",
+            "value": 22
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 10
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "laurel-mountain": {
+    "sources": [
+      "https://www.laurelmountainski.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 19
+    },
+    "lifts": {
+      "total": 1
+    },
+    "notes": [
+      "官网难度占比为 52% / 36% / 16%，合计 104%，暂不估算分项。提升设施未拆分类型。"
+    ]
+  },
+  "hidden-valley-pa": {
+    "sources": [
+      "https://www.hiddenvalleyresort.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 26,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 28
+          },
+          {
+            "level": "intermediate",
+            "value": 41
+          },
+          {
+            "level": "advanced-expert",
+            "value": 31
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 8
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "afton-alps": {
+    "sources": [
+      "https://www.aftonalps.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 50,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 25
+          },
+          {
+            "level": "intermediate",
+            "value": 50
+          },
+          {
+            "level": "advanced-expert",
+            "value": 25
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 17
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "mt-brighton": {
+    "sources": [
+      "https://www.mtbrighton.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 24,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 30
+          },
+          {
+            "level": "intermediate",
+            "value": 40
+          },
+          {
+            "level": "advanced-expert",
+            "value": 30
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 12,
+      "aerial": 5
+    },
+    "notes": [
+      "官网统计表列 24 条雪道，介绍段落列 25 条；暂采用统计表，数量待官网进一步确认。7 部地面设施未区分魔毯与拖牵。"
+    ]
+  },
+  "wilmot": {
+    "sources": [
+      "https://www.wilmotmountain.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 25,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 36
+          },
+          {
+            "level": "intermediate",
+            "value": 32
+          },
+          {
+            "level": "advanced-expert",
+            "value": 32
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 10
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "alpine-valley-oh": {
+    "sources": [
+      "https://www.alpinevalleyohio.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 9,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 22
+          },
+          {
+            "level": "intermediate",
+            "value": 45
+          },
+          {
+            "level": "advanced-expert",
+            "value": 33
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 5
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "mad-river-mountain": {
+    "sources": [
+      "https://www.skimadriver.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 16,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 46
+          },
+          {
+            "level": "intermediate",
+            "value": 38
+          },
+          {
+            "level": "advanced-expert",
+            "value": 16
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 9
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "hidden-valley-mo": {
+    "sources": [
+      "https://www.hiddenvalleyski.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 13,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 31
+          },
+          {
+            "level": "intermediate",
+            "value": 46
+          },
+          {
+            "level": "advanced-expert",
+            "value": 23
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 10
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。",
+      "官网统计表列 13 条，介绍段落列 16 条；暂采用统计表，数量待官网进一步确认。"
+    ]
+  },
+  "snow-creek": {
+    "sources": [
+      "https://www.skisnowcreek.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 14,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 21
+          },
+          {
+            "level": "intermediate",
+            "value": 71
+          },
+          {
+            "level": "advanced-expert",
+            "value": 8
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 5
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "paoli-peaks": {
+    "sources": [
+      "https://www.paolipeaks.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 15,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 25
+          },
+          {
+            "level": "intermediate",
+            "value": 55
+          },
+          {
+            "level": "advanced-expert",
+            "value": 20
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 8
+    },
+    "notes": [
+      "官网 Lifts 合计未明确拆分缆车与魔毯；三档难度中的最高档保留为高级/专家合计。"
+    ]
+  },
+  "boston-mills": {
+    "sources": [
+      "https://www.bmbw.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {},
+    "lifts": {},
+    "notes": [
+      "官网仅公布 Boston Mills 与 Brandywine 合计 18 条雪道、15 部提升设施，不能分配为各场数量。"
+    ]
+  },
+  "brandywine": {
+    "sources": [
+      "https://www.bmbw.com/the-mountain/about-the-mountain/mountain-info.aspx"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {},
+    "lifts": {},
+    "notes": [
+      "官网仅公布 Boston Mills 与 Brandywine 合计 18 条雪道、15 部提升设施，不能分配为各场数量。"
+    ]
+  },
+  "june-mountain": {
+    "sources": [
+      "https://www.junemountain.com/mountain-information/trail-map"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 41,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 15
+          },
+          {
+            "level": "intermediate",
+            "value": 40
+          },
+          {
+            "level": "advanced-expert",
+            "value": 45
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "aerial": 6,
+      "carpets": 1,
+      "total": 7
+    },
+    "notes": [
+      "官网 Number of Lifts 为 6 部吊椅，另列 1 条魔毯。"
+    ]
+  },
+  "stratton": {
+    "sources": [
+      "https://www.stratton.com/the-mountain/mountain-statistics"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 99,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 40
+          },
+          {
+            "level": "intermediate",
+            "value": 35
+          },
+          {
+            "level": "advanced",
+            "value": 16
+          },
+          {
+            "level": "expert",
+            "value": 9
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 14,
+      "aerial": 10,
+      "carpets": 4
+    },
+    "notes": [
+      "采用官网详细统计表；页面旧介绍段落仍写 11 部设施。"
+    ]
+  },
+  "palisades-tahoe": {
+    "sources": [
+      "https://www.palisadestahoe.com/footer/mountain-statistics"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 288
+    },
+    "lifts": {
+      "total": 39
+    },
+    "notes": [
+      "官网两山合计写 288 条，分山 187 + 109 则为 296 条；占比也合计 101%。待核实，暂不估算分项。缆车类型合计与总数也有出入，暂不拆分。"
+    ]
+  },
+  "copper-mountain": {
+    "sources": [
+      "https://www.coppercolorado.com/the-mountain/mountain-safety-stats/winter-mountain-stats/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 157,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 24
+          },
+          {
+            "level": "intermediate",
+            "value": 26
+          },
+          {
+            "level": "advanced",
+            "value": 32
+          },
+          {
+            "level": "expert",
+            "value": 10
+          },
+          {
+            "level": "extreme",
+            "value": 8
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 24,
+      "aerial": 16,
+      "carpets": 5
+    },
+    "notes": [
+      "另有 3 部地面拖牵，未计入缆车或魔毯。"
+    ]
+  },
+  "snow-valley": {
+    "sources": [
+      "https://www.bigbearmountainresort.com/our-mountains"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 32,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 14
+          },
+          {
+            "level": "intermediate",
+            "value": 45
+          },
+          {
+            "level": "advanced-expert",
+            "value": 41
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "aerial": 9
+    },
+    "notes": []
+  },
+  "big-bear": {
+    "sources": [
+      "https://www.bigbearmountainresort.com/our-mountains"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 59
+    },
+    "lifts": {
+      "aerial": 17
+    },
+    "notes": [
+      "仅合计 Snow Summit（33 条、10 部吊椅）与 Bear Mountain（26 条、7 部吊椅），不含单列的 Snow Valley。官网把初级与较低中级合并，分级条数暂未核实。"
+    ]
+  },
+  "snowshoe": {
+    "sources": [
+      "https://www.snowshoemtn.com/mountain-info/mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 56
+    },
+    "lifts": {
+      "total": 15
+    },
+    "notes": [
+      "雪道为 Basin 37 + Silver Creek 15 + Western Territory 4。设施为 7 + 6 + 1，加 Silver Creek 新增 1 部拖牵。官方难度占比按面积统计且另含公园与树林，暂不据此拆分雪道。"
+    ]
+  },
+  "solitude": {
+    "sources": [
+      "https://www.solitudemountain.com/mountain-and-village/mountain-information/solitude-by-the-numbers"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 82,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 10
+          },
+          {
+            "level": "intermediate",
+            "value": 40
+          },
+          {
+            "level": "advanced-expert",
+            "value": 50
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 9,
+      "aerial": 8,
+      "carpets": 1
+    },
+    "notes": []
+  },
+  "winter-park": {
+    "sources": [
+      "https://www.winterparkresort.com/the-mountain/mountain-information/statistics"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 171
+    },
+    "lifts": {
+      "total": 23,
+      "aerial": 19
+    },
+    "notes": [
+      "官网顶部列 171 条，正文列 166 条，另一个初学者页面列 36 条初级道，与 8% 地形占比口径不同；暂不估算分项。3 部 surface lifts 未确定为魔毯，另有 1 部拖牵。"
+    ]
+  },
+  "alyeska": {
+    "sources": [
+      "https://www.alyeskaresort.com/about-the-mountain/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 76
+    },
+    "lifts": {
+      "total": 7,
+      "aerial": 5,
+      "carpets": 2
+    },
+    "notes": [
+      "当前官网未给出难度分项，未采用过往雪季比例。"
+    ]
+  },
+  "big-sky": {
+    "sources": [
+      "https://www.bigskyresort.com/mountain-info"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 320,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 21
+          },
+          {
+            "level": "intermediate",
+            "value": 15
+          },
+          {
+            "level": "intermediate-advanced",
+            "value": 14
+          },
+          {
+            "level": "advanced",
+            "value": 31
+          },
+          {
+            "level": "expert",
+            "value": 11
+          },
+          {
+            "level": "extreme",
+            "value": 8
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 40,
+      "aerial": 27
+    },
+    "notes": [
+      "缆车按官网 40 部总数减 13 部 surface lifts；这 13 部设施未全部明确为魔毯。"
+    ]
+  },
+  "blue-mountain-pa": {
+    "sources": [
+      "https://www.skibluemt.com/test-ride/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 40,
+      "breakdown": {
+        "basis": "count",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 15
+          },
+          {
+            "level": "intermediate",
+            "value": 6
+          },
+          {
+            "level": "advanced",
+            "value": 16
+          },
+          {
+            "level": "expert",
+            "value": 3
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 15
+    },
+    "notes": []
+  },
+  "boyne-mountain": {
+    "sources": [
+      "https://www.boynemountain.com/mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 64
+    },
+    "lifts": {
+      "aerial": 10
+    },
+    "notes": [
+      "官网有 Estelle's Way 教学魔毯和雪圈传送带，但未明确完整的滑雪魔毯总数。"
+    ]
+  },
+  "granite-peak": {
+    "sources": [
+      "https://www.skigranitepeak.com/mountain-info/trail-map-mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 68,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 25
+          },
+          {
+            "level": "intermediate",
+            "value": 40
+          },
+          {
+            "level": "advanced",
+            "value": 25
+          },
+          {
+            "level": "expert",
+            "value": 10
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 7,
+      "aerial": 5,
+      "carpets": 2
+    },
+    "notes": []
+  },
+  "loon-mountain": {
+    "sources": [
+      "https://www.loonmtn.com/mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 73,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 19
+          },
+          {
+            "level": "intermediate",
+            "value": 53
+          },
+          {
+            "level": "advanced-expert",
+            "value": 28
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 13,
+      "aerial": 10,
+      "carpets": 3
+    },
+    "notes": [
+      "按当前山地统计表；官网总经理更新另提到新增 Little Sass，尚不明确是否已计入这 3 条魔毯。"
+    ]
+  },
+  "lutsen": {
+    "sources": [
+      "https://www.lutsen.com/mountain-info/trail-map-mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 95,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 18
+          },
+          {
+            "level": "intermediate",
+            "value": 47
+          },
+          {
+            "level": "advanced",
+            "value": 25
+          },
+          {
+            "level": "expert",
+            "value": 10
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 7,
+      "aerial": 6,
+      "carpets": 1
+    },
+    "notes": []
+  },
+  "schweitzer": {
+    "sources": [
+      "https://www.schweitzer.com/discover-schweitzer/stats-and-info"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 92,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 10
+          },
+          {
+            "level": "intermediate",
+            "value": 40
+          },
+          {
+            "level": "advanced",
+            "value": 35
+          },
+          {
+            "level": "expert",
+            "value": 15
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 10,
+      "aerial": 8,
+      "carpets": 1
+    },
+    "notes": [
+      "另有 1 部 T-bar 拖牵。"
+    ]
+  },
+  "sierra-at-tahoe": {
+    "sources": [
+      "https://sierraattahoe.com/maps-and-stats/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 50,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 25
+          },
+          {
+            "level": "intermediate",
+            "value": 50
+          },
+          {
+            "level": "advanced-expert",
+            "value": 25
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 14,
+      "aerial": 9
+    },
+    "notes": [
+      "5 部 surface lifts 未进一步确认魔毯数量。"
+    ]
+  },
+  "snowbird": {
+    "sources": [
+      "https://www.snowbird.com/tickets-passes/tickets/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {},
+    "lifts": {
+      "aerial": 10,
+      "carpets": 2,
+      "total": 12
+    },
+    "notes": [
+      "官网冬季票包含 9 部缆车、1 部空中缆车及 2 条传送带。"
+    ]
+  },
+  "snowriver": {
+    "sources": [
+      "https://www.snowriver.com/mountain-info/trail-map-mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 73,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 20
+          },
+          {
+            "level": "intermediate",
+            "value": 32
+          },
+          {
+            "level": "advanced",
+            "value": 32
+          },
+          {
+            "level": "expert",
+            "value": 16
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 7
+    },
+    "notes": [
+      "总数含树林雪道，采用官网当前汇总 73 条；分区旧数字与汇总不同。"
+    ]
+  },
+  "steamboat": {
+    "sources": [
+      "https://www.steamboat.com/the-mountain/mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 184
+    },
+    "lifts": {
+      "total": 23,
+      "aerial": 17
+    },
+    "notes": [
+      "6 部 surface lifts 未确认魔毯数量；当前统计页无难度分项，未采用旧版媒体资料。"
+    ]
+  },
+  "sugarloaf": {
+    "sources": [
+      "https://www.sugarloaf.com/mountain-info",
+      "https://www.sugarloaf.com/media-room"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 176,
+      "breakdown": {
+        "basis": "count",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 38
+          },
+          {
+            "level": "intermediate",
+            "value": 54
+          },
+          {
+            "level": "advanced",
+            "value": 42
+          },
+          {
+            "level": "expert",
+            "value": 36
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 15,
+      "aerial": 12
+    },
+    "notes": [
+      "官网分级计数合计 170 条，小于包含公园的总数 176 条；剩余 6 条未分类，未强行分配。3 部 surface lifts 未确认魔毯数量。"
+    ]
+  },
+  "sunday-river": {
+    "sources": [
+      "https://www.sundayriver.com/the-mountain"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 139
+    },
+    "lifts": {
+      "total": 19
+    },
+    "notes": [
+      "雪道总数包含树林区域。"
+    ]
+  },
+  "taos": {
+    "sources": [
+      "https://www.skitaos.com/mountain?section=info-hours"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 110,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 24
+          },
+          {
+            "level": "intermediate",
+            "value": 25
+          },
+          {
+            "level": "advanced-expert",
+            "value": 51
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 13,
+      "aerial": 10
+    },
+    "notes": [
+      "官网将最高档统一称 Expert；3 部 surface lifts 未确认魔毯数量。"
+    ]
+  },
+  "the-highlands": {
+    "sources": [
+      "https://www.highlandsharborsprings.com/media-room/resort-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 55,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 37
+          },
+          {
+            "level": "intermediate",
+            "value": 29
+          },
+          {
+            "level": "advanced-expert",
+            "value": 34
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 8,
+      "aerial": 6,
+      "carpets": 2
+    },
+    "notes": [
+      "采用媒体统计页，含 2 条魔毯；另一地形页面把 8 部全部称为 chairlifts，分项口径仍待官网确认。"
+    ]
+  },
+  "summit-at-snoqualmie": {
+    "sources": [
+      "https://www.summitatsnoqualmie.com/trail-maps"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {},
+    "lifts": {
+      "total": 25
+    },
+    "notes": [
+      "官网 trail maps 页列 25 部提升设施，主页同一数字标为 chairlifts；未明确魔毯是否另计。"
+    ]
+  },
+  "mammoth": {
+    "sources": [
+      "https://www.mammothmountain.com/-/media/project/mammoth/library/pdfs/Fact-Sheets/25-26_Marketing_MMSA_Fact-Sheets_85x11"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 180,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 13
+          },
+          {
+            "level": "intermediate",
+            "value": 28
+          },
+          {
+            "level": "advanced",
+            "value": 20
+          },
+          {
+            "level": "expert",
+            "value": 24
+          },
+          {
+            "level": "extreme",
+            "value": 15
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "aerial": 25
+    },
+    "notes": [
+      "来源为官网 2025/26 资料，2026/27 尚待更新；官方五档原名为 Easiest / Slightly Difficult / Difficult / Very Difficult / Extremely Difficult。25 部空中设施另列 3 部 surface lifts，未确认魔毯。"
+    ]
+  },
+  "sugarbush": {
+    "sources": [
+      "https://www.sugarbush.com/mountain/terrain-and-maps"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 111
+    },
+    "lifts": {
+      "total": 16
+    },
+    "notes": [
+      "官网汇总为 16 部提升设施，分山数字存在共享设施或旧数据差异，暂不拆分类型。"
+    ]
+  },
+  "arapahoe-basin": {
+    "sources": [
+      "https://www.arapahoebasin.com/snow-report/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 147
+    },
+    "lifts": {
+      "total": 9
+    },
+    "notes": [
+      "统计的是总设施与总雪道数，不是当日开放数；当前官网仅给出 73% 高级/专家地形，完整分项待核实。"
+    ]
+  },
+  "brighton": {
+    "sources": [
+      "https://www.brightonresort.com/about"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 66
+    },
+    "lifts": {
+      "total": 8,
+      "aerial": 6
+    },
+    "notes": [
+      "2 部 surface lifts 尚未确认是否均为魔毯。"
+    ]
+  },
+  "crystal-mountain-wa": {
+    "sources": [
+      "https://www.crystalmountainresort.com/media/mountain-stats-and-facts"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 85
+    },
+    "lifts": {
+      "total": 11,
+      "aerial": 10
+    },
+    "notes": [
+      "官网顶部为 85 条 named runs，详细统计为 57 条 designated trails，口径不同，暂不估算难度分项。类型表列 10 部空中设施，剩余 1 部类型未确认。"
+    ]
+  },
+  "camelback": {
+    "sources": [
+      "https://www.camelbackresort.com/poconos-ski-tube"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 39
+    },
+    "lifts": {},
+    "notes": [
+      "已核实雪道总数；难度分级和滑雪缆车/魔毯总数待进一步核实，雪圈设施不混入滑雪魔毯。"
+    ]
+  },
+  "killington-pico": {
+    "sources": [
+      "https://killington.com/mountain-stats"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 213,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 17.272300469483568
+          },
+          {
+            "level": "intermediate",
+            "value": 41.63380281690141
+          },
+          {
+            "level": "advanced-expert",
+            "value": 41.093896713615024
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 24,
+      "aerial": 21,
+      "carpets": 3
+    },
+    "notes": [
+      "合计 Killington 155 条与 Pico 58 条；分级占比按各山雪道数加权。3 条魔毯为 2 + 1。"
+    ]
+  },
+  "aspen-snowmass": {
+    "sources": [
+      "https://www.aspensnowmass.com/-/media/aspen-snowmass/documents/pdfs/25-26/aspen-snowmass-mountain-stats.pdf"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {
+      "total": 413,
+      "breakdown": {
+        "basis": "percent",
+        "values": [
+          {
+            "level": "beginner",
+            "value": 4.915254237288136
+          },
+          {
+            "level": "intermediate",
+            "value": 38.32445520581114
+          },
+          {
+            "level": "advanced",
+            "value": 18.983050847457626
+          },
+          {
+            "level": "expert",
+            "value": 37.7772397094431
+          }
+        ]
+      }
+    },
+    "lifts": {
+      "total": 41
+    },
+    "notes": [
+      "来源为官网 2025/26 资料，2026/27 尚待更新。四山雪道为 Aspen Mountain 127、Highlands 144、Buttermilk 44、Snowmass 98；分级占比按各山条数加权。设施为 8 + 5 + 8 + 20，魔毯未单列。"
+    ]
+  },
+  "eldora": {
+    "sources": [
+      "https://www.eldora.com/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {},
+    "lifts": {},
+    "notes": [
+      "官网动态山地统计未能读取完整数据，雪道分级与提升设施数量待核实。"
+    ]
+  },
+  "mt-bachelor": {
+    "sources": [
+      "https://www.mtbachelor.com/the-mountain/resort-policies-safety/mountain-stats/"
+    ],
+    "checkedOn": "2026-10-05",
+    "trails": {},
+    "lifts": {},
+    "notes": [
+      "官网山地统计为动态内容，目前无法核实完整分项，暂不使用第三方或旧季数字。"
+    ]
+  }
+}

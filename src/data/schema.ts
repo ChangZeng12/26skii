@@ -43,6 +43,36 @@ export const AccessGroupSchema = z
 
 const Age = z.number().int().min(0).max(120);
 
+export const TrailLevelSchema = z.enum(['beginner', 'intermediate', 'intermediate-advanced', 'advanced', 'expert', 'extreme', 'advanced-expert', 'beginner-intermediate']);
+const Count = z.number().int().nonnegative();
+export const MountainStatsSchema = z.object({
+  sources: z.array(z.url({ protocol: /^https$/ })).min(1),
+  checkedOn: IsoDate,
+  trails: z.object({
+    total: Count.optional(),
+    atLeast: z.boolean().optional(),
+    breakdown: z.object({
+      basis: z.enum(['count', 'percent']),
+      values: z.array(z.object({ level: TrailLevelSchema, value: z.number().nonnegative() })).min(1),
+    }).optional(),
+  }),
+  lifts: z.object({ total: Count.optional(), aerial: Count.optional(), carpets: Count.optional() }),
+  notes: z.array(z.string().min(1)),
+}).superRefine((stats, ctx) => {
+  const breakdown = stats.trails.breakdown;
+  if (breakdown) {
+    const levels = breakdown.values.map((v) => v.level);
+    if (new Set(levels).size !== levels.length) ctx.addIssue({ code: 'custom', message: '雪道分级不能重复' });
+    if (breakdown.basis === 'percent' && (stats.trails.total === undefined || Math.abs(breakdown.values.reduce((s, v) => s + v.value, 0) - 100) > 1)) ctx.addIssue({ code: 'custom', message: '占比估算需要雪道总数，且占比合计须为 100%（允许 1% 舍入误差）' });
+    if (breakdown.basis === 'count' && breakdown.values.some((v) => !Number.isInteger(v.value))) ctx.addIssue({ code: 'custom', message: '雪道条数必须是整数' });
+    if (breakdown.basis === 'count' && stats.trails.total !== undefined && breakdown.values.reduce((s, v) => s + v.value, 0) > stats.trails.total) ctx.addIssue({ code: 'custom', message: '分级雪道数不能超过总数' });
+  }
+  if (stats.lifts.total !== undefined && (stats.lifts.aerial ?? 0) + (stats.lifts.carpets ?? 0) > stats.lifts.total) ctx.addIssue({ code: 'custom', message: '缆车与魔毯不能超过设施总数' });
+});
+export const MountainStatsFileSchema = z.record(KebabId, MountainStatsSchema);
+export type MountainStats = z.infer<typeof MountainStatsSchema>;
+export type TrailLevel = z.infer<typeof TrailLevelSchema>;
+
 /** 一档价格适用的年龄区间；ageMax 省略表示「及以上」 */
 const AgeRangeShape = { ageMin: Age, ageMax: Age.optional() };
 

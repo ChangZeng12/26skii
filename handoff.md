@@ -95,6 +95,8 @@
 
 ## 7. 下一步 / 待办
 
+2026-10-05 新增雪道/缆车详情：`MountainStats.tsx` 显示横排难度符号+数量，下方缆车/魔毯；`mountain-stats.json` 是独立官方来源数据，由 `lib/data.ts` join。用户允许按官网难度占比估算并标「约」。目前 72 条来源记录、52 场有难度分项、25 场有空中缆车分项、12 场有魔毯分项；缺口显示「— 待核实」，官网 Lifts 总数另列，防止把拖牵或魔毯误算为空中缆车。Mammoth/Aspen 来源为 2025/26，notes 已注明。`tests/mountain-stats.test.ts` 覆盖整数分配、零与缺失、数据溯源、72 面板静态渲染。typecheck/lint/64 tests/validate:data/build 通过。CUA 连接现有 Pages 页仍超时；本次未完成真实浏览器的桌面/手机、明暗和键盘目视检查，不要误报完成。
+
 **等用户提供或回答**（agents.md §14）：
 1. 换一张真的旧金山头像 `src/icon/SF1.jpg`，然后跑 `python scripts/make-avatars.py`。
 2. 自驾可接受的单程上限？是否接受转机？（决定评分里的 `DRIVE_MAX_MI`）

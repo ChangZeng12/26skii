@@ -1,5 +1,7 @@
 import resortsJson from '../data/resorts.json';
 import originsJson from '../data/origins.json';
+import mountainStatsJson from '../data/mountain-stats.json';
+import type { MountainStats } from '../data/schema';
 import type { AccessGroup, BlackoutRange, Origin, OriginsFile, Resort, ResortsFile } from '../data/schema';
 
 export interface ResortAccess extends AccessGroup {
@@ -10,6 +12,7 @@ export interface ResortAccess extends AccessGroup {
 
 /** 运行时消费的雪场：已把 accessGroup join 进来，组件只用这个类型 */
 export interface ResortView extends Resort {
+  mountainStats?: MountainStats;
   access: ResortAccess;
   /** 已按「雪场覆盖 > 组默认」解析 */
   reservationRequired: boolean;
@@ -32,6 +35,7 @@ export function joinResorts(file: ResortsFile): ResortView[] {
       : [];
     return {
       ...resort,
+      mountainStats: (mountainStatsJson as Record<string, MountainStats>)[resort.id],
       access: { ...group, blackouts, poolPartners },
       reservationRequired: resort.reservationRequired ?? group.reservationRequired,
     };

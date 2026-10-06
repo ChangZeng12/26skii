@@ -2,10 +2,12 @@ import type { ReactElement } from 'react';
 
 export type IconName =
   | 'plus' | 'minus' | 'close' | 'external' | 'check' | 'alert' | 'calendar' | 'ticket'
-  | 'info' | 'pin' | 'person' | 'globe' | 'sun' | 'moon' | 'search';
+  | 'info' | 'pin' | 'person' | 'globe' | 'sun' | 'moon' | 'search' | 'chairlift' | 'carpet';
 
 /** 24×24 线性图标，风格对齐 SF Symbols 的 regular 字重：圆角端点、等宽描边 */
 const PATHS: Record<IconName, ReactElement> = {
+  chairlift: <><path d="m2 6 20-4M12 4v6l-5 3v5h12v-6M7 15h12M8 21h10" /><circle cx="12" cy="4" r="1" /></>,
+  carpet: <path d="m3 16 15-9a2 2 0 0 1 2 4L5 20a2 2 0 0 1-2-4ZM7 14l2 3m2-5 2 3m2-5 2 3M4 22h16" />,
   search: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></>,
   plus: <path d="M12 5v14M5 12h14" />,
   minus: <path d="M5 12h14" />,

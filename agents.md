@@ -125,6 +125,8 @@ skiplan26/
 
 ## 5. 数据模型
 
+2026-10-05 新增 `src/data/mountain-stats.json`，按 72 个雪场 id 保存雪道与提升设施统计，由 `lib/data.ts` join 为 `ResortView.mountainStats`。每条有 `sources`、`checkedOn` 和 `notes`，日期仅指本次查看，不代表所有分项已核实。官网精确条数直接展示；用户已允许用官方总数与难度占比粗估并显示「约」，最大余数法保持总数。缆车只计空中设施，魔毯不包括 T-bar/绳索拖牵，不将官方 Lifts 总数冒充缆车数。缺失字段显示「— 待核实」，绝不补成 0。保留官网合并难度等级与多山口径，旧雪季资料在 notes 标明；未核实内容不影响原有 pass 条款核实状态。
+
 `resorts.json` 采用**归一化**结构：通行条款定义一次（`accessGroups`），雪场只引用组 id。
 这样 72 条记录里不会出现 72 份重复的封锁日数组，也杜绝了条款抄错。
 
@@ -397,6 +399,8 @@ python scripts/make-avatars.py   # 替换/新增头像后重新生成缩略图�
 - ✅ **年龄段**：所有人 25–30 岁 → Epic Local 青年价 $675、Ikon Base 成人价 $1,019（§6.1）。
 
 ### 仍待确认
+
+- 雪道/设施数据（2026-10-05）：72 场面板已接入；52 场有精确或按官网占比粗估的分级、25 场有空中缆车数、12 场有明确魔毯数。其余保留待核实，特别是 Eldora、Mt. Bachelor 动态数据、Boston Mills/Brandywine 分山统计及官网相互矛盾的总数；全部具体缺口和来源在 `mountain-stats.json`。Mammoth 与 Aspen Snowmass 暂引用官网 2025/26 资料，尚需 2026/27 更新。
 
 1. 旧金山的头像 `src/icon/SF1.jpg` 是一张纯白图片，需要换成真正的头像，再运行 `python scripts/make-avatars.py`。
 2. 自驾可接受的单程上限是多少小时？是否接受转机？（影响 `DRIVE_MAX_MI` 与评分）

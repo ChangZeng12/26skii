@@ -1,0 +1,17 @@
+.mountain-stats { display: grid; gap: var(--s-4); min-width: 0; }
+.mountain-stats__heading { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-4); }
+.mountain-stats__heading h3 { font-size: var(--fs-body); font-weight: var(--weight-semibold); }
+.mountain-stats__heading > span, .mountain-stats__label { font-size: var(--fs-subheadline); color: var(--text-secondary); }
+.mountain-stats__trails { display: flex; gap: var(--s-2); list-style: none; padding: 0; margin: 0; }
+.mountain-stats__trails li { flex: 1; min-width: 0; display: grid; gap: var(--s-1); }
+.mountain-stats__value { display: flex; align-items: center; gap: var(--s-1); font-size: var(--fs-subheadline); white-space: nowrap; }
+.mountain-stats strong { font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
+.trail-symbol { width: var(--icon-lg); height: var(--icon-lg); flex-shrink: 0; color: var(--text-primary); }
+.trail-symbol[data-level="beginner"], .trail-symbol[data-level="beginner-intermediate"] { color: var(--state-ok-strong); }
+.trail-symbol[data-level="intermediate"], .trail-symbol[data-level="intermediate-advanced"] { color: var(--sys-blue); }
+.mountain-stats__lifts { display: flex; gap: var(--s-7); padding-top: var(--s-4); border-top: 1px solid var(--separator); font-size: var(--fs-callout); }
+.mountain-stats__lifts > span { display: flex; align-items: center; gap: var(--s-2); }
+.mountain-stats__note, .mountain-stats__details { color: var(--text-secondary); font-size: var(--fs-subheadline); line-height: var(--lh-callout); }
+.mountain-stats__details summary { cursor: pointer; width: fit-content; padding-block: var(--s-2); }
+.mountain-stats__details p { margin-top: var(--s-3); }
+.mountain-stats__details a { display: inline-flex; align-items: center; gap: var(--s-2); margin-top: var(--s-3); margin-right: var(--s-4); }
