@@ -12,7 +12,20 @@
       "state": "CA",
       "coords": [-122.4194, 37.7749],
       "homeAirports": ["SFO", "OAK", "SJC"],
-      "people": [{ "id": "sf-1", "avatar": "SF1.jpg" }],
+      "people": [
+        { "id": "sf-1", "avatar": "SF1.jpg" },
+        { "id": "sf-2", "avatar": "SF2.jpg" }
+      ],
+      "enabled": true
+    },
+    {
+      "id": "reno",
+      "label": "里诺",
+      "labelEn": "Reno, NV",
+      "state": "NV",
+      "coords": [-119.8138, 39.5296],
+      "homeAirports": ["RNO"],
+      "people": [{ "id": "reno-1", "avatar": "RENO.jpg" }],
       "enabled": true
     },
     {

@@ -70,14 +70,14 @@ describe('origins.json', () => {
   const result = OriginsFileSchema.safeParse(originsJson);
   const origins = result.data?.origins ?? [];
 
-  it('符合 schema，且是用户给出的 6 个出发地', () => {
+  it('符合 schema，且是用户给出的 7 个出发地', () => {
     expect(result.error?.issues).toBeUndefined();
-    expect(origins.map((o) => o.id)).toEqual(['sf', 'arlington-va', 'baltimore', 'madison', 'nyc', 'boston']);
+    expect(origins.map((o) => o.id)).toEqual(['sf', 'reno', 'arlington-va', 'baltimore', 'madison', 'nyc', 'boston']);
   });
 
-  it('每个出发地的人数与 src/icon 里的头像一致：阿灵顿、波士顿各 2 人，共 8 人', () => {
+  it('每个出发地的人数与 src/icon 里的头像一致：旧金山、阿灵顿、波士顿各 2 人，共 10 人', () => {
     expect(Object.fromEntries(origins.map((o) => [o.id, o.people.length]))).toEqual({
-      sf: 1, 'arlington-va': 2, baltimore: 1, madison: 1, nyc: 1, boston: 2,
+      sf: 2, reno: 1, 'arlington-va': 2, baltimore: 1, madison: 1, nyc: 1, boston: 2,
     });
   });
 

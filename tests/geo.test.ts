@@ -33,15 +33,16 @@ describe('出发地合并（agents.md §2：东北四地在全美视野下不能
   const groupsAt = (zoom: number) =>
     groupByProximity(ORIGINS, (o) => mercatorPixels(o.coords, zoom), ORIGIN_MERGE_PX).map((g) => g.map((o) => o.id));
 
-  it('全美视野（约 zoom 3.7）下，阿灵顿与巴尔的摩合并，旧金山和麦迪逊各自独立', () => {
+  it('全美视野（约 zoom 3.7）下，阿灵顿与巴尔的摩合并，旧金山、里诺和麦迪逊各自独立', () => {
     const groups = groupsAt(3.7);
     expect(groups).toContainEqual(['sf']);
+    expect(groups).toContainEqual(['reno']);
     expect(groups).toContainEqual(['madison']);
     expect(groups.find((g) => g.includes('arlington-va'))).toContain('baltimore');
   });
 
-  it('放大到 zoom 9 时六地全部分开', () => {
-    expect(groupsAt(9)).toHaveLength(6);
+  it('放大到 zoom 9 时各出发地全部分开', () => {
+    expect(groupsAt(9)).toHaveLength(ORIGINS.length);
   });
 });
 
